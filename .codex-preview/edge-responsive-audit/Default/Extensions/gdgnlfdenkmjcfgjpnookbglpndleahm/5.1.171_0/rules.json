@@ -1,0 +1,1795 @@
+[
+    {
+        "id": 1,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://www.amazon.in"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||amazon.in/tez/browse",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 2,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://www.amazon.in"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||amazon.in/tez/order",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 3,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://www.amazon.in"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||amazon.in/portal-migration/hz/glow",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 4,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://blinkit.com"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||blinkit.com/v1/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 5,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://blinkit.com"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||blinkit.com/v4/address",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 6,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://blinkit.com"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||blinkit.com/location/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 7,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://blinkit.com"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||blinkit.com/s/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 8,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://blinkit.com"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||api2.grofers.com/v1/layout/order",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 9,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://quickcompare.in"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://quickcompare.in/"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||api.quickcompare.in/qc",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 10,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://www.swiggy.com"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://www.swiggy.com/"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||www.swiggy.com/api/seo/getListing",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 11,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://www.swiggy.com"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://www.swiggy.com/"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||www.swiggy.com/dapi/restaurants/search/v3",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 12,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://www.swiggy.com"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://www.swiggy.com/search"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||www.swiggy.com/dapi/restaurants/search/suggest",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 13,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://www.swiggy.com"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://www.swiggy.com/restaurants"
+                },
+                {
+                    "header": "User-Agent",
+                    "operation": "set",
+                    "value": "Swiggy-Android"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||disc.swiggy.com/api/v2/menu/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 14,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://www.swiggy.com"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://www.swiggy.com/"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||payments.swiggy.com/api/v3/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 15,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://profile.swiggy.com"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://profile.swiggy.com/"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||profile.swiggy.com/api/v3/app/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 16,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://www.zomato.com"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://www.zomato.com/"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||api.zomato.com/gateway/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 17,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://www.zomato.com"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://www.zomato.com/"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||api.zomato.com/gw/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 18,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://www.zomato.com"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://www.zomato.com/"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||api.zomato.com/v2/order/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 19,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://www.zomato.com"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://www.zomato.com/"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||www.zomato.com/webroutes/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 20,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://accounts.zomato.com"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://accounts.zomato.com/"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||accounts.zomato.com/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 21,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://cxapi.pd.ownly.food"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://cxapi.pd.ownly.food/"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||cxapi.pd.ownly.food/api/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 22,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://www.swiggy.com"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://www.swiggy.com/"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||disc.swiggy.com/api/v1/auto-suggest/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 23,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://www.amazon.in"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||amazon.in/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 24,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://blinkit.com"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||blinkit.com/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 25,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://blinkit.com"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||api2.grofers.com/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 26,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://quickcompare.in"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://quickcompare.in/"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||quickcompare.in/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 27,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://www.swiggy.com"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://www.swiggy.com/"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||www.swiggy.com/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 28,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://www.swiggy.com"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://www.swiggy.com/"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||disc.swiggy.com/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 29,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://www.swiggy.com"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://www.swiggy.com/"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||payments.swiggy.com/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 30,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://profile.swiggy.com"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://profile.swiggy.com/"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||profile.swiggy.com/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 31,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://www.zomato.com"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://www.zomato.com/"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||api.zomato.com/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 32,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://www.zomato.com"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://www.zomato.com/"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||www.zomato.com/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 33,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://cxapi.pd.ownly.food"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://cxapi.pd.ownly.food/"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||cxapi.pd.ownly.food/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 34,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://www.mcdelivery.co.in"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://www.mcdelivery.co.in/"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||be.mcdelivery.co.in/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 35,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://www.zepto.com"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://www.zepto.com/"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||zepto.co.in/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 36,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://mapi.goibibo.com"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://www.goibibo.com/"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||mapi.goibibo.com/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 37,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://www.cleartrip.com"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://www.cleartrip.com/hotels"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||cleartrip.com/prefixy/",
+            "excludedInitiatorDomains": [
+                "cleartrip.com"
+            ],
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 38,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://www.agoda.com"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://www.agoda.com/"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||agoda.com/api/",
+            "excludedInitiatorDomains": [
+                "agoda.com"
+            ],
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 39,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://www.dmart.in"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://www.dmart.in/"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||digital.dmart.in/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+		"id": 40,
+		"priority": 1,
+		"action": {
+			"type": "modifyHeaders",
+			"requestHeaders": [
+				{
+					"header": "Origin",
+					"operation": "set",
+					"value": "https://www.makemytrip.com"
+				},
+				{
+					"header": "Referer",
+					"operation": "set",
+					"value": "https://www.makemytrip.com/"
+				}
+			]
+		},
+		"condition": {
+			"initiatorDomains": [
+				"ojplmecpdpgccookcobabopnaifgidhf",
+				"gdgnlfdenkmjcfgjpnookbglpndleahm"
+			],
+			"urlFilter": "||makemytrip.com/",
+			"excludedInitiatorDomains": ["makemytrip.com"],
+			"resourceTypes": ["xmlhttprequest", "other"]
+		}
+	},
+	{
+		"id": 41,
+		"priority": 1,
+		"action": {
+			"type": "modifyHeaders",
+			"requestHeaders": [
+				{
+					"header": "Origin",
+					"operation": "set",
+					"value": "https://mapi.makemytrip.com"
+				},
+				{
+					"header": "Referer",
+					"operation": "set",
+					"value": "https://www.makemytrip.com/"
+				}
+			]
+		},
+		"condition": {
+			"initiatorDomains": [
+				"ojplmecpdpgccookcobabopnaifgidhf",
+				"gdgnlfdenkmjcfgjpnookbglpndleahm"
+			],
+			"urlFilter": "||mapi.makemytrip.com/",
+			"excludedInitiatorDomains": ["makemytrip.com"],
+			"resourceTypes": ["xmlhttprequest", "other"]
+		}
+	},
+	{
+		"id": 42,
+		"priority": 2,
+		"action": {
+			"type": "modifyHeaders",
+			"requestHeaders": [
+				{
+					"header": "User-Agent",
+					"operation": "set",
+					"value": "okhttp/4.9.1"
+				}
+			]
+		},
+		"condition": {
+			"initiatorDomains": [
+				"ojplmecpdpgccookcobabopnaifgidhf",
+				"gdgnlfdenkmjcfgjpnookbglpndleahm"
+			],
+			"urlFilter": "||mapi.goibibo.com/clientbackend-gi/cg/*/android/",
+			"resourceTypes": ["xmlhttprequest", "other"],
+			"excludedInitiatorDomains": ["goibibo.com"]
+		}
+    },
+	{
+		"id": 43,
+		"priority": 1,
+		"action": {
+			"type": "modifyHeaders",
+			"requestHeaders": [
+				{
+					"header": "Origin",
+					"operation": "set",
+					"value": "https://www.booking.com"
+				},
+				{
+					"header": "Referer",
+					"operation": "set",
+					"value": "https://www.booking.com/"
+				},
+				{
+					"header": "Sec-Fetch-Site",
+					"operation": "set",
+					"value": "same-origin"
+				},
+				{
+					"header": "Sec-Fetch-Mode",
+					"operation": "set",
+					"value": "cors"
+				},
+				{
+					"header": "Sec-Fetch-Dest",
+					"operation": "set",
+					"value": "empty"
+				}
+			]
+		},
+		"condition": {
+			"initiatorDomains": [
+				"ojplmecpdpgccookcobabopnaifgidhf",
+				"gdgnlfdenkmjcfgjpnookbglpndleahm"
+			],
+			"urlFilter": "||booking.com/dml/graphql",
+			"excludedInitiatorDomains": ["booking.com"],
+			"resourceTypes": ["xmlhttprequest", "other"]
+		}
+    },
+    {
+        "id": 44,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://www.klook.com"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://www.klook.com/en-IN/hotels/"
+                },
+                {
+                    "header": "Sec-Fetch-Site",
+                    "operation": "set",
+                    "value": "same-origin"
+                },
+                {
+                    "header": "Sec-Fetch-Mode",
+                    "operation": "set",
+                    "value": "cors"
+                },
+                {
+                    "header": "Sec-Fetch-Dest",
+                    "operation": "set",
+                    "value": "empty"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||klook.com/v1/hotelapiserv/",
+            "excludedInitiatorDomains": [
+                "klook.com"
+            ],
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 45,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://in.trip.com"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://in.trip.com/hotels/"
+                },
+                {
+                    "header": "Sec-Fetch-Site",
+                    "operation": "set",
+                    "value": "same-origin"
+                },
+                {
+                    "header": "Sec-Fetch-Mode",
+                    "operation": "set",
+                    "value": "cors"
+                },
+                {
+                    "header": "Sec-Fetch-Dest",
+                    "operation": "set",
+                    "value": "empty"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||in.trip.com/restapi/soa2/",
+            "excludedInitiatorDomains": [
+                "trip.com"
+            ],
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 46,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://www.ixigo.com"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://www.ixigo.com/hotels"
+                },
+                {
+                    "header": "Sec-Fetch-Site",
+                    "operation": "set",
+                    "value": "same-origin"
+                },
+                {
+                    "header": "Sec-Fetch-Mode",
+                    "operation": "set",
+                    "value": "cors"
+                },
+                {
+                    "header": "Sec-Fetch-Dest",
+                    "operation": "set",
+                    "value": "empty"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||ixigo.com/accommodation-search/",
+            "excludedInitiatorDomains": [
+                "ixigo.com"
+            ],
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 47,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "www.expedia.co.in"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://www.expedia.co.in"
+                },
+                {
+                    "header": "Sec-Fetch-Site",
+                    "operation": "set",
+                    "value": "same-origin"
+                },
+                {
+                    "header": "Sec-Fetch-Mode",
+                    "operation": "set",
+                    "value": "cors"
+                },
+                {
+                    "header": "Sec-Fetch-Dest",
+                    "operation": "set",
+                    "value": "empty"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||expedia.co.in/graphql",
+            "excludedInitiatorDomains": [
+                "expedia.co.in"
+            ],
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 48,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://payments.swiggy.com"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://payments.swiggy.com/"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||chkout.swiggy.com/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 49,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://online.kfc.co.in"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://online.kfc.co.in/"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||orderserv-kfc-apac-olo-api.yum.com/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 50,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://login.kfc.co.in"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://login.kfc.co.in/"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||login.kfc.co.in/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 51,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "remove"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "remove"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||api.dominos.co.in/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 52,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://www.flipkart.com"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://www.flipkart.com/viewcart"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||rome.api.flipkart.com/api/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 53,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://www.nykaafashion.com"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://www.nykaafashion.com/"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||nykaafashion.com/*cartapi/v1/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 54,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://www.nykaa.com"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://www.nykaa.com/"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||nykaa.com/*cartapi/v1/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 55,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "set",
+                    "value": "https://www.nykaaman.com"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "set",
+                    "value": "https://www.nykaaman.com/"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||nykaaman.com/*cartapi/v1/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 56,
+        "priority": 2,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "remove"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "remove"
+                }
+            ]
+        },
+        "condition": {
+            "urlFilter": "||mcp.swiggy.com/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+    {
+        "id": 57,
+        "priority": 2,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "operation": "remove"
+                },
+                {
+                    "header": "Referer",
+                    "operation": "remove"
+                },
+                {
+                    "header": "sec-fetch-site",
+                    "operation": "set",
+                    "value": "same-origin"
+                },
+                {
+                    "header": "sec-fetch-mode",
+                    "operation": "set",
+                    "value": "cors"
+                },
+                {
+                    "header": "sec-fetch-dest",
+                    "operation": "set",
+                    "value": "empty"
+                }
+            ]
+        },
+        "condition": {
+            "initiatorDomains": [
+                "ojplmecpdpgccookcobabopnaifgidhf",
+                "gdgnlfdenkmjcfgjpnookbglpndleahm"
+            ],
+            "urlFilter": "||bigbasket.com/listing-svc/",
+            "resourceTypes": [
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    },
+	{
+      "id": 58,
+      "priority": 1,
+      "action": {
+        "type": "modifyHeaders",
+        "requestHeaders": [
+          {
+            "header": "Origin",
+            "operation": "set",
+            "value": "https://www.gasbuddy.com"
+          },
+          {
+            "header": "Referer",
+            "operation": "set",
+            "value": "https://www.gasbuddy.com/home"
+          },
+          {
+            "header": "Sec-Fetch-Site",
+            "operation": "set",
+            "value": "same-origin"
+          },
+          {
+            "header": "Sec-Fetch-Mode",
+            "operation": "set",
+            "value": "cors"
+          },
+          {
+            "header": "Sec-Fetch-Dest",
+            "operation": "set",
+            "value": "empty"
+          }
+        ]
+      },
+      "condition": {
+        "initiatorDomains": [
+          "ojplmecpdpgccookcobabopnaifgidhf",
+          "gdgnlfdenkmjcfgjpnookbglpndleahm"
+        ],
+        "urlFilter": "||gasbuddy.com/graphql",
+        "excludedInitiatorDomains": [
+          "gasbuddy.com"
+        ],
+        "resourceTypes": [
+          "xmlhttprequest",
+          "other"
+        ]
+      }
+    }
+]

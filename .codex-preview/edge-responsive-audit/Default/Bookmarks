@@ -1,0 +1,95 @@
+{
+   "checksum": "9a5bd53dc468b529323846f4090f6144",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "date_added": "13431946175433993",
+            "date_last_used": "0",
+            "guid": "9f2c957b-15dc-402c-941d-09bce8676574",
+            "id": "10",
+            "name": "Watch Suits S7 Episode 5 on JioHotstar",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://www.hotstar.com/in/shows/suits/1971002986/brooklyn-housing/1971065101/watch?ulp_id=1971002986",
+            "visit_count": 1
+         }, {
+            "date_added": "13436730816201984",
+            "date_last_used": "0",
+            "guid": "832604b7-43f5-4888-aa14-0bf29883487c",
+            "id": "9",
+            "name": "Lenovo Support",
+            "show_icon": false,
+            "source": "oem_preload",
+            "type": "url",
+            "url": "https://support.lenovo.com/",
+            "visit_count": 0
+         }, {
+            "date_added": "13436730816201879",
+            "date_last_used": "0",
+            "guid": "38458497-3f43-4db8-977b-fc49b9445e07",
+            "id": "8",
+            "name": "Lenovo",
+            "show_icon": false,
+            "source": "oem_preload",
+            "type": "url",
+            "url": "https://www.lenovo.com/",
+            "visit_count": 0
+         }, {
+            "date_added": "13436730816201608",
+            "date_last_used": "0",
+            "guid": "4412b0cd-af40-42df-874e-d8714f1f942d",
+            "id": "7",
+            "name": "McAfee",
+            "show_icon": false,
+            "source": "oem_preload",
+            "type": "url",
+            "url": "https://consroute.mcafee.com/app?csrc=browserfavaffid=714clicksrc=browserfav",
+            "visit_count": 0
+         } ],
+         "date_added": "13436730816044235",
+         "date_last_used": "0",
+         "date_modified": "13436730816201984",
+         "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",
+         "id": "1",
+         "name": "Favorites bar",
+         "source": "unknown",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "13436730816044235",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "82b081ec-3dd3-529c-8475-ab6c344590dd",
+         "id": "2",
+         "name": "Other favorites",
+         "source": "unknown",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13436730816044235",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "4cf2e351-0e85-532b-bb37-df045d8f8d0f",
+         "id": "3",
+         "name": "Mobile favorites",
+         "source": "unknown",
+         "type": "folder"
+      },
+      "workspaces_v2": {
+         "children": [  ],
+         "date_added": "13436730816044235",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "75aa6670-344f-549d-b742-660f029506ab",
+         "id": "5",
+         "name": "Workspaces",
+         "source": "unknown",
+         "type": "folder"
+      }
+   },
+   "sync_metadata": "CjEKDgiIgQISCAmW2UqhAQAAEgAqGGtuMGpJamRLYnZJUWJobEV6bVc0Q2c9PUgDoAYHEowBCAMShwEKHG5qZ0R1ODhlQ3J2WHA4NnBEN2ZIR2NxRnA4OD0SJDBmN2U4M2Q3LTc2YmYtNTY5MC04Mzk0LTgxMjlhOTJkYjVkYxgAIAAoADDO9p+xmTM47YSgsZkzQO2EoLGZM0oceXpOQjAxY241NEE3Y1JVMHVUKy9QZ21UdFVvPWUAAAAAwj4CYAASrAEIChKnAQocNjlkWERZNi9WeGtsTjZlT2R2WGhIcUExTzRJPRIkOWYyYzk1N2ItMTVkYy00MDJjLTk0MWQtMDliY2U4Njc2NTc0GAAgACgAMPiBrO2CNDjYhKztgjRA2ISs7YI0ShxXd2pEMHk5ZUhUY004Z05ZNTVuM0pXWEFxNkE9Wh4iHEZFOFNCMWpjdlpWTEs1VmY5R2loUjdUTnhLST1lBeRn6MI+AmAFEowBCAEShwEKHHl4Si82ZnZrZWNyN2twNUVRekI0dFdMcGRiRT0SJDY3OTZmNzg2LTNhZjEtNWYzOC1hYTY5LTE3MzhhOGJiZmMxNxgAIAAoADDH9p+xmTM4pIOgsZkzQKSDoLGZM0ocYVJDV0xnaEY5YjVJbnFLSUR2dUovanZRa0ZjPWUAAAAAwj4CYAASjAEIAhKHAQocWWNTVG9udkVTUHdxQ3M0TDJjclZodjY4TDk4PRIkZmY5YTcwNGItZmE2OS01NTAyLWFkN2UtNWFkNzJmZmQ3MWMyGAAgACgAMMj2n7GZMzjWg6CxmTNA1oOgsZkzShxvUFZraHdCUmJWNjVLQ1dSMitJT05IV29PdTg9ZQAAAADCPgJgABKMAQgFEocBChx3UkJyWkwrNlBBOWF2S2dqTlA3SlhETGNmdnM9EiRmNDFiMDQ5Mi02YzVhLTU3ZDctOWFmYS05YTQ5OGQwZGYxZjYYACAAKAAwzfafsZkzOL2EoLGZM0C9hKCxmTNKHG5teDY1c1FEdnhJOFRnRWV2K0ErbnR0b1NuND1lAAAAAMI+AmAAMAA4AA==",
+   "version": 1
+}

@@ -1,0 +1,1 @@
+import{f as a}from"./domCheckout-CooVs9En.js";window!==window.top&&chrome.runtime.onMessage.addListener((o,i,n)=>{if(!((o==null?void 0:o.action)!=="DOM_COD_FRAME_OP"||!location.href.includes(o.frameMatch)))return a(o.op,o.payload||{}).then(t=>n(t),()=>n(null)),!0});

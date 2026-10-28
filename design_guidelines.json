@@ -1,0 +1,261 @@
+{
+  "brand": {
+    "name": "Rane Management Consultant Pvt. Ltd.",
+    "established": 1995,
+    "positioning": "Modern, premium, trustworthy, government-grade consulting"
+  },
+  "theme": "LIGHT",
+  "archetype": "4 (Swiss & High-Contrast) + 5 (Luxury/Premium Old Money Tech)",
+  "color_palette": {
+    "primary": {
+      "DEFAULT": "#0F2744",
+      "foreground": "#FFFFFF",
+      "hover": "#173A66",
+      "description": "Deep Navy Blue. Used for primary CTAs, dark sections, footer, and authoritative headers."
+    },
+    "secondary": {
+      "DEFAULT": "#C8A44D",
+      "foreground": "#0F2744",
+      "hover": "#DBC07B",
+      "description": "Government Gold. Used for accents, secondary buttons, timeline active states, and premium highlights."
+    },
+    "accent": {
+      "DEFAULT": "#0E8B8B",
+      "foreground": "#FFFFFF",
+      "hover": "#12AFAF",
+      "description": "GIS Teal. Used for data visualizations, map overlays, tech capability badges."
+    },
+    "background": {
+      "DEFAULT": "#F8FAFC",
+      "paper": "#FFFFFF",
+      "dark_section": "#0F2744",
+      "description": "Slate 50 background for clean, modern spaciousness."
+    },
+    "text": {
+      "DEFAULT": "#1A202C",
+      "muted": "#4A5568",
+      "inverse": "#FFFFFF",
+      "inverse_muted": "#CBD5E1"
+    },
+    "status": {
+      "success": "#2E7D32",
+      "error": "#D32F2F"
+    },
+    "border": {
+      "DEFAULT": "#E2E8F0",
+      "gold_subtle": "rgba(200, 164, 77, 0.3)",
+      "navy_subtle": "rgba(15, 39, 68, 0.1)"
+    }
+  },
+  "typography": {
+    "font_families": {
+      "heading": "Poppins, sans-serif",
+      "body": "Inter, sans-serif",
+      "mono": "JetBrains Mono, monospace"
+    },
+    "hierarchy": {
+      "h1": {
+        "classes": "font-heading font-semibold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#0F2744]",
+        "dark_classes": "text-white"
+      },
+      "h2": {
+        "classes": "font-heading font-semibold text-3xl sm:text-4xl tracking-tight text-[#0F2744]",
+        "dark_classes": "text-white"
+      },
+      "h3": {
+        "classes": "font-heading font-semibold text-2xl sm:text-3xl tracking-tight text-[#1A202C]",
+        "dark_classes": "text-white"
+      },
+      "h4": {
+        "classes": "font-heading font-semibold text-xl sm:text-2xl text-[#1A202C]",
+        "dark_classes": "text-white"
+      },
+      "body": {
+        "classes": "font-body text-base lg:text-lg text-[#4A5568] leading-relaxed"
+      },
+      "small": {
+        "classes": "font-body text-sm text-[#4A5568]"
+      },
+      "overline": {
+        "classes": "font-heading text-xs font-bold uppercase tracking-[0.2em] text-[#C8A44D] mb-2 block"
+      }
+    }
+  },
+  "spacing_and_layout": {
+    "container": "max-w-7xl mx-auto px-6 md:px-12 lg:px-24",
+    "section_padding": "py-20 lg:py-32",
+    "gap": {
+      "standard": "gap-8",
+      "large": "gap-16",
+      "grid": "gap-6 lg:gap-8"
+    },
+    "border_radius": {
+      "card": "rounded-none md:rounded-sm",
+      "button": "rounded-none",
+      "image": "rounded-sm"
+    },
+    "shadows": {
+      "card": "shadow-sm",
+      "hover": "shadow-[0_8px_30px_rgb(0,0,0,0.08)]",
+      "premium_glow": "shadow-[0_0_40px_rgba(200,164,77,0.15)]"
+    },
+    "philosophy": "Generous whitespace. Asymmetric bento grids. Sharp or very minimal border radii (rounded-sm max) to convey seriousness and structural integrity. Do not use 'startup' bubbles."
+  },
+  "component_guidelines": {
+    "navigation": {
+      "style": "Glassmorphism sticky header (bg-white/90 backdrop-blur-md border-b border-[#E2E8F0]). Logo left, links centered, secondary CTA right. Hide links in hamburger on mobile only.",
+      "active_state": "Text color changes to #C8A44D, bottom border 2px solid #C8A44D."
+    },
+    "hero": {
+      "style": "80vh min-height. Heavy dark overlay (bg-[#0F2744]/75) over high-quality drone/infrastructure imagery. Content left-aligned. Trust bar at bottom spanning full width (logos of MMRDA, CIDCO, etc.)."
+    },
+    "service_cards": {
+      "style": "Rectangular cards, bg-white, 1px border-[#E2E8F0]. Top colored border (3px) in #C8A44D or #0F2744. Left-aligned content, subtle icon in #0E8B8B. Hover lift (-translate-y-1) and shadow-lg."
+    },
+    "gis_dashboard_mockup": {
+      "style": "Dark mode bento grid embedded in a page section. bg-[#0A111A], border border-[#173A66]. Use #0E8B8B for data lines/graphs, tabular-nums for coordinates/stats. Must feel like enterprise software (ESRI/Bentley)."
+    },
+    "buttons": {
+      "primary": "bg-[#0F2744] text-white hover:bg-[#173A66] px-8 py-4 font-semibold tracking-wide transition-all",
+      "secondary": "bg-[#C8A44D] text-[#0F2744] hover:bg-[#DBC07B] px-8 py-4 font-semibold tracking-wide transition-all",
+      "outline": "border-2 border-[#0F2744] text-[#0F2744] hover:bg-[#0F2744] hover:text-white px-8 py-4 font-semibold transition-all"
+    },
+    "timeline": {
+      "style": "Left-bordered vertical line (border-l-2 border-[#E2E8F0]). Nodes in #C8A44D. Content cards offset with generous padding. Slide-in animation on scroll."
+    },
+    "trust_bar": {
+      "style": "Grayscale logos with opacity-50. Hover: opacity-100 and full color. Generous gap-12."
+    },
+    "footer": {
+      "style": "bg-[#0F2744] text-white py-24. High contrast. Large brand statement (h2 text-white). Grid of links. Gold accents."
+    }
+  },
+  "motion_and_interactions": {
+    "philosophy": "Subtle, professional, authoritative.",
+    "scroll": "Smooth scroll (Lenis recommended if possible). Sections fade in and slide up slightly (y: 20 -> 0).",
+    "stats": "Count-up animation when in view.",
+    "hover": "Buttons fill or lift. Cards lift subtly. No extreme scaling or spinning.",
+    "gis_maps": "Fade in with slow scale up (1.05 -> 1.0) over 1.5s."
+  },
+  "pages": {
+    "home": {
+      "sections": [
+        "Hero (Drone + Dark Overlay + Left Aligned Text + Primary CTA)",
+        "Trust Bar (Client Logos)",
+        "Who We Are & Timeline (1995-Today)",
+        "Core Services Bento Grid (6 items)",
+        "Why Choose Us (Split Section: Image left, content right)",
+        "GIS Capabilities Showcase (Dark theme dashboard mockup)",
+        "Project Showcase (Large Case Study Cards)",
+        "Client Testimonials (Slider)",
+        "Stats (Counters)",
+        "Final CTA"
+      ]
+    },
+    "about": {
+      "sections": [
+        "Hero (Office/Team)",
+        "Mission & Vision",
+        "Detailed Timeline (1995, 2000, 2010, 2020, 2025+)",
+        "Leadership Team (Grid)",
+        "Core Values"
+      ]
+    },
+    "services": {
+      "sections": [
+        "Hero (Abstract Infrastructure)",
+        "Service Categories Grid (Land Surveying, Land Acquisition, GIS, Revenue Records, Infrastructure Advisory, Architecture)",
+        "Process Flow (How we work)"
+      ]
+    },
+    "gis_solutions": {
+      "sections": [
+        "Hero (Tech focus, Dark)",
+        "Capabilities & Dashboard Mockup",
+        "Case Studies (Before/After)",
+        "Tech Stack (ESRI, Bentley, etc.)"
+      ]
+    },
+    "land_acquisition": {
+      "sections": [
+        "Hero",
+        "Problem vs Solution",
+        "Process Flow Diagram",
+        "Success Stories"
+      ]
+    },
+    "projects": {
+      "sections": [
+        "Hero",
+        "Filterable Portfolio Grid (Land Survey, GIS, etc.)",
+        "Interactive Timeline of Projects"
+      ]
+    },
+    "careers": {
+      "sections": [
+        "Hero",
+        "Culture & Benefits",
+        "Open Positions List",
+        "Application Form"
+      ]
+    },
+    "contact": {
+      "sections": [
+        "Hero",
+        "Two Office Details (Mumbai, Navi Mumbai)",
+        "Embedded Map",
+        "Inquiry Form"
+      ]
+    },
+    "admin": {
+      "sections": [
+        "Sidebar Nav",
+        "Leads Data Table (Shadcn Table, sorting, filtering)",
+        "Lead Details View"
+      ]
+    }
+  },
+  "media_assets": {
+    "images": {
+      "hero_drone_infrastructure": "https://images.unsplash.com/photo-1545208031-40409a47dd02?q=80&w=2000&auto=format&fit=crop",
+      "gis_dashboard_mockup_bg": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop",
+      "land_survey_equipment_1": "https://images.unsplash.com/photo-1628158088803-4200c2be52f1?q=80&w=1000&auto=format&fit=crop",
+      "land_survey_equipment_2": "https://images.unsplash.com/photo-1628158145409-9e222b56cc0b?q=80&w=1000&auto=format&fit=crop",
+      "modern_office_1": "https://images.pexels.com/photos/15202224/pexels-photo-15202224.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "modern_office_2": "https://images.pexels.com/photos/16370914/pexels-photo-16370914.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "government_building": "https://images.unsplash.com/photo-1572091722323-9b2f6fb3a286?q=80&w=1000&auto=format&fit=crop",
+      "leadership_placeholder_1": "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop",
+      "leadership_placeholder_2": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop",
+      "project_highway": "https://images.unsplash.com/photo-1517424619662-7901844bbf37?q=80&w=1200&auto=format&fit=crop",
+      "project_urban_planning": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop"
+    },
+    "visual_enhancers": {
+      "texture": "Subtle noise overlay (opacity-5) on dark sections to prevent flatness.",
+      "pattern": "SVG Topographic map lines with opacity-5 in #0F2744 on the light #F8FAFC background sections.",
+      "icons": "lucide-react for all standard icons. Stroke width 1.5. Use #C8A44D or #0E8B8B for icon colors."
+    }
+  },
+  "testing_attributes": {
+    "rule": "All interactive and key informational elements MUST include a data-testid attribute in kebab-case based on role.",
+    "examples": [
+      "data-testid='nav-contact-button'",
+      "data-testid='hero-primary-cta'",
+      "data-testid='contact-form-submit-button'",
+      "data-testid='service-card-gis'",
+      "data-testid='admin-leads-table'"
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Use Shadcn UI components for complex interactions (Tables, Forms, Nav Menu), but heavily customize to match the exact color palette and sharp radius rules.",
+    "DO NOT use generic shadow-md everywhere. Follow the precise borders and subtle shadows in the spacing_and_layout rules.",
+    "Ensure the Topographic background pattern is very subtle so as not to reduce text legibility.",
+    "Keep standard pages light theme (#F8FAFC), but use the deep navy (#0F2744) for footers, hero overlays, and the GIS capabilities section.",
+    "Ensure robust routing between all 8 pages.",
+    "The admin view should be a separate route (e.g., /admin) with a data table component.",
+    "Always use the text hierarchy defined in typography.h1 to typography.h4.",
+    "Make sure the navbar is sticky with a glassmorphism effect.",
+    "Do not use generic placeholder images like via.placeholder.com. ONLY use the media_assets URLs provided in this JSON.",
+    "Apply data-testid to every button, link, form input, and structural card.",
+    "Use React Hook Form and Zod for the Contact/Careers forms."
+  ]
+}

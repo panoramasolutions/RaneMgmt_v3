@@ -1,0 +1,19 @@
+{
+  "summary": "Verified three UI rendering bug fixes on RMCPL marketing site (HashRouter, static frontend). BUG1 Land Acquisition 9-stage badges: all nine STEP 01..STEP 09 gold badges render fully, un-clipped, at top of each card (verified via data-testid stage-01..stage-09, visible=true, non-zero bounds, screenshot). BUG2 GIS & Technology dashboard mockup under 'An interface our analysts and your stakeholders share daily.' now fully visible (opacity=1, height=574px, contains LAYERS, PARCEL #482, Parcels mapped 38,420, COVERAGE/ACCURACY/DATASETS/UPDATED strip). BUG3 About Timeline: all five year overlines (1995, 2000s, 2010s, 2020s, Today - displayed uppercase via .overline class) render in full; gold dot markers positioned absolute -left-[41px] on the parent <ol>'s left border, NOT overlapping the year text (dot_left=518, li_left=559 => dot is 41px left of content, no overlap). Regression smoke on Home: hero renders, Signature Project 01 'Mumbai Water Supply Infrastructure Survey' & '1,000 KM' present, Home GIS Dashboard section ('single dashboard') renders (mockup opacity=1, height=574px).",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (skipped per request)", "frontend": "100%"},
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Site is static frontend on HashRouter (URLs use /#/). No backend. Timeline year labels use .overline class which applies text-transform:uppercase, so DOM text is '2000s'/'2010s'/'2020s'/'Today' rendered as '2000S'/'2010S'/'2020S'/'TODAY' — use case-insensitive matching or data-testid timeline-node-<year> attributes. GIS dashboard mockup has data-testid='gis-dashboard-mockup' on both /#/gis-technology and Home page.",
+  "rca of the issue": "All three original bugs were CSS/animation related: (1) STEP badges were absolutely positioned outside card and clipped by container overflow — fixed by placing them inline inside the card; (2) GIS mockup wrapper had .reveal class whose default opacity:0 was never toggled to visible due to IntersectionObserver miss — .reveal removed and ScrollReveal component made more robust to already-in-viewport elements; (3) Timeline dot span was rendered inline before the year text, visually overlapping it — moved to absolute -left-[41px] on the <ol> border line and parent padding increased to pl-10."
+}

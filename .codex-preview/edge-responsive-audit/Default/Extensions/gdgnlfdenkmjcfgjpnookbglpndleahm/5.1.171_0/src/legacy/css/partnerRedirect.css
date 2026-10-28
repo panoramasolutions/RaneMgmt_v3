@@ -1,0 +1,11 @@
+/* Hides Skyscanner's marks on the partner interstitial (flights transport_deeplink,
+   hotels hotel_deeplink) until travelScrapper.js swaps the src to the Buyhatke logo.
+   visibility (not display) so layout is preserved and the rendered size stays
+   measurable. Keep these selectors in sync with applyBrandLogo() in travelScrapper.js.
+   Only injected on URLs carrying our affiliate params (see include_globs in manifest.json):
+   a user who reaches the same page by browsing Skyscanner directly keeps Skyscanner's logo. */
+img[src*="skyscanner_stacked_rebrand"],
+img[src*="skyscanner-logo_rebrand"],
+img[src*="skyscanner"][src*="rebrand"] {
+	visibility: hidden !important;
+}

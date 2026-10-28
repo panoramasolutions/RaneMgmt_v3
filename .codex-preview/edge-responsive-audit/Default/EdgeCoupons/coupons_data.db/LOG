@@ -1,0 +1,6 @@
+2026/10/17-22:47:43.505 4af8 Reusing MANIFEST D:\Business\Panorama Solutions\RaneManagement\RaneManagement-Website\.codex-preview\edge-responsive-audit\Default\EdgeCoupons/coupons_data.db/MANIFEST-000001
+2026/10/17-22:47:43.506 4af8 Recovering log #10
+2026/10/17-22:47:43.506 4af8 Reusing old log D:\Business\Panorama Solutions\RaneManagement\RaneManagement-Website\.codex-preview\edge-responsive-audit\Default\EdgeCoupons/coupons_data.db/000010.log 
+2026/10/17-22:47:43.703 917c Level-0 table #14: started
+2026/10/17-22:47:43.706 917c Level-0 table #14: 683444 bytes OK
+2026/10/17-22:47:43.708 917c Delete type=0 #10

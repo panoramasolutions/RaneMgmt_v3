@@ -1,0 +1,2 @@
+(function(){(function(){function r(){const t=document.querySelector(".errorSection");return!!(t&&/expired or lost/i.test(t.textContent||""))}function o(){try{chrome.runtime.sendMessage({action:"kayakErrorPageDetected"})}catch{}}if(r()){o();return}const e=new MutationObserver(()=>{r()&&(e.disconnect(),o())});e.observe(document.documentElement,{childList:!0,subtree:!0}),setTimeout(()=>e.disconnect(),8e3)})();
+})()
