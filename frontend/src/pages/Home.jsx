@@ -35,17 +35,27 @@ export default function Home() {
   return (
     <div data-testid="home-page" className="bg-white">
       <section data-testid="home-hero" className="relative overflow-hidden bg-white border-b border-[#DDE3EB]">
-        <div className="hidden lg:block absolute inset-y-0 right-0 w-[42%] bg-[#F3F6FA]" aria-hidden="true" />
-        <div className="relative max-w-[1440px] mx-auto px-5 md:px-8 lg:px-12 xl:px-16 py-10 md:py-12 lg:py-12">
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-14 xl:gap-16 items-center">
-          <div className="lg:col-span-5 fade-up">
+        <div className="home-hero-media hidden lg:block" aria-hidden="true">
+          <HeroVideoLayer />
+        </div>
+        <div className="home-hero-blend hidden lg:block absolute inset-0 pointer-events-none" aria-hidden="true" />
+        <div className="home-hero-purpose hidden lg:block">
+          <div className="home-hero-purpose-label">Our commitment</div>
+          <p>Contributing to <span>Nation-building.</span></p>
+        </div>
+
+        <div className="relative z-10 max-w-[1440px] min-h-[660px] xl:min-h-[700px] mx-auto px-5 md:px-8 lg:px-12 xl:px-16 flex items-center">
+          <div className="w-full py-10 md:py-12 lg:py-16">
+          <div className="lg:w-[48%] fade-up">
             <div className="eyebrow">Established {BRAND.established} · Navi Mumbai</div>
             <h1
               data-testid="hero-headline"
-              className="font-heading text-[#243D71] mt-6 max-w-3xl leading-[1.01]"
-              style={{ fontSize: "clamp(2.75rem, 4.8vw, 4.75rem)", fontWeight: 700 }}
+              className="font-heading text-[#243D71] mt-6 max-w-3xl leading-[0.98]"
+              style={{ fontSize: "clamp(2.5rem, 4vw, 4rem)", fontWeight: 700 }}
             >
-              Precision engineering for <span className="text-[#034EA1]">resilient infrastructure.</span>
+              <span className="block">Surveying <span className="text-[#034EA1]">Precision.</span></span>
+              <span className="block mt-2">GIS <span className="text-[#034EA1]">Intelligence.</span></span>
+              <span className="block mt-2">Engineering <span className="text-[#034EA1]">Excellence.</span></span>
             </h1>
             <p className="mt-7 text-base lg:text-lg text-[#637083] max-w-xl leading-relaxed">
               Land survey, land records, acquisition, master planning and infrastructure consultancy for government, semi-government and private projects.
@@ -65,28 +75,11 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="lg:col-span-7 hero-image-enter">
-            <div className="relative">
-              <div className="absolute -inset-3 md:-inset-4 border border-[#CDD8E7]" aria-hidden="true" />
-              <div className="relative overflow-hidden bg-[#17294F] border border-[#17294F] shadow-[0_28px_65px_-34px_rgba(23,41,79,0.55)]">
-                <div className="h-11 px-4 sm:px-5 flex items-center justify-between gap-4 border-b border-white/15">
-                  <div className="flex items-center gap-3 min-w-0">
-                    <span className="h-2 w-2 rounded-full bg-[#F2A14A] shrink-0" aria-hidden="true" />
-                    <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.18em] text-white/70 truncate">RMCPL · Field intelligence</span>
-                  </div>
-                  <span className="hidden sm:inline font-mono text-[9px] uppercase tracking-[0.16em] text-white/45">Project overview</span>
-                </div>
-                <div className="relative aspect-video bg-black">
-                  <HeroVideoLayer />
-                </div>
-                <div className="px-4 py-4 sm:px-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-t border-white/15">
-                  <div>
-                    <div className="font-mono text-[9px] uppercase tracking-[0.18em] text-[#F2A14A]">Survey · Acquisition · Planning</div>
-                    <div className="mt-1 font-heading text-sm sm:text-base text-white">Reliable field data for informed decisions.</div>
-                  </div>
-                  <div className="font-mono text-[9px] uppercase tracking-[0.16em] text-white/50 sm:text-right whitespace-nowrap">Established 1995</div>
-                </div>
-              </div>
+          <div className="relative lg:hidden mt-10 -mx-5 md:-mx-8 aspect-[16/10] overflow-hidden bg-[#17294F] hero-image-enter">
+            <HeroVideoLayer />
+            <div className="absolute inset-x-5 bottom-5 border-l-2 border-[#E07000] bg-[#17294F]/85 px-5 py-4 backdrop-blur-sm shadow-xl">
+              <div className="font-heading text-[9px] font-bold uppercase tracking-[0.18em] text-[#F2A14A]">Our commitment</div>
+              <p className="mt-1.5 font-heading text-lg font-semibold leading-tight text-white">Contributing to Nation-building.</p>
             </div>
           </div>
           </div>
@@ -109,39 +102,61 @@ export default function Home() {
         </div>
       </section>
 
-      <section data-testid="about-summary" className="bg-white border-b border-[#DDE3EB]">
-        <div className="container-wide py-16 md:py-20 lg:py-24">
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
-            <div className="lg:col-span-4 reveal">
+      <section data-testid="about-summary" className="bg-[#FBFCFE] border-b border-[#DDE3EB]">
+        <div className="container-wide py-16 md:py-20 lg:py-[5.5rem]">
+          <div className="grid lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.38fr)] gap-12 lg:gap-16 xl:gap-24 items-start">
+            <div className="reveal lg:pt-2">
               <div className="eyebrow">About RMCPL</div>
-              <h2 className="mt-6 font-heading text-[#243D71] leading-tight" style={{ fontSize: "clamp(2.2rem, 4vw, 3.4rem)", fontWeight: 650 }}>
-                Built on precision. Evolving with infrastructure.
+              <h2 className="mt-6 max-w-[520px] font-heading text-[#243D71] leading-[1.08] tracking-[-0.035em]" style={{ fontSize: "clamp(2.15rem, 3.4vw, 3.15rem)", fontWeight: 650 }}>
+                Geospatial, Land & Engineering Consultancy.
               </h2>
-              <p className="mt-6 text-[#637083] leading-relaxed">
+              <p className="mt-6 max-w-md text-[1.02rem] text-[#637083] leading-[1.75]">
                 Three defining milestones trace the company&apos;s growth from land surveying to integrated infrastructure and GIS solutions.
               </p>
-              <Link to="/about" className="btn-primary mt-8">
+              <Link to="/about" className="btn-primary mt-9">
                 Read our story <ArrowUpRight size={17} />
               </Link>
             </div>
 
-            <div className="lg:col-span-7 lg:col-start-6 border-t-2 border-[#243D71] reveal reveal-stagger">
-              <article className="grid sm:grid-cols-[88px_1fr] gap-4 sm:gap-8 py-7 border-b border-[#DDE3EB]">
-                <div className="font-mono text-sm text-[#E07000]">1995</div>
-                <p className="text-[#637083] leading-relaxed">
+            <div className="reveal reveal-stagger">
+              <div className="flex items-center justify-between gap-6 pb-4 border-b-2 border-[#243D71]">
+                <span className="font-heading text-[10px] font-bold uppercase tracking-[0.18em] text-[#243D71]">Company evolution</span>
+                <span className="font-mono text-[10px] tracking-[0.14em] text-[#637083]">1995 — 2025</span>
+              </div>
+              <article className="group grid sm:grid-cols-[96px_1fr] gap-4 sm:gap-8 px-3 sm:px-4 py-7 md:py-8 border-b border-[#DDE3EB] transition-colors duration-200 hover:bg-white">
+                <div className="flex items-center gap-3 self-start pt-1">
+                  <span className="h-2 w-2 rounded-full bg-[#E07000]" aria-hidden="true" />
+                  <span className="font-mono text-xs tracking-[0.08em] text-[#E07000]">1995</span>
+                </div>
+                <p className="text-[15px] md:text-base text-[#637083] leading-[1.75] tracking-[-0.005em]">
                   Founded by Director Mr. Manmohan B. Rane, the company specializes in providing precise land survey data for private and government agencies.
                 </p>
               </article>
-              <article className="grid sm:grid-cols-[88px_1fr] gap-4 sm:gap-8 py-7 border-b border-[#DDE3EB]">
-                <div className="font-mono text-sm text-[#E07000]">2002</div>
-                <p className="text-[#637083] leading-relaxed">
+              <article className="group grid sm:grid-cols-[96px_1fr] gap-4 sm:gap-8 px-3 sm:px-4 py-7 md:py-8 border-b border-[#DDE3EB] transition-colors duration-200 hover:bg-white">
+                <div className="flex items-center gap-3 self-start pt-1">
+                  <span className="h-2 w-2 rounded-full bg-[#E07000]" aria-hidden="true" />
+                  <span className="font-mono text-xs tracking-[0.08em] text-[#E07000]">2002</span>
+                </div>
+                <p className="text-[15px] md:text-base text-[#637083] leading-[1.75] tracking-[-0.005em]">
                   RMCPL expanded into city survey work for corporations across Maharashtra, successfully completing eight municipal city survey projects. This growth opened the way to broader land acquisition, infrastructure planning and design services.
                 </p>
               </article>
-              <article className="grid sm:grid-cols-[88px_1fr] gap-4 sm:gap-8 py-7 border-b border-[#DDE3EB]">
-                <div className="font-mono text-sm text-[#E07000]">2014</div>
-                <p className="text-[#637083] leading-relaxed">
+              <article className="group grid sm:grid-cols-[96px_1fr] gap-4 sm:gap-8 px-3 sm:px-4 py-7 md:py-8 border-b border-[#DDE3EB] transition-colors duration-200 hover:bg-white">
+                <div className="flex items-center gap-3 self-start pt-1">
+                  <span className="h-2 w-2 rounded-full bg-[#E07000]" aria-hidden="true" />
+                  <span className="font-mono text-xs tracking-[0.08em] text-[#E07000]">2016</span>
+                </div>
+                <p className="text-[15px] md:text-base text-[#637083] leading-[1.75] tracking-[-0.005em]">
                   Anticipating future demand, the company established an IT cell for GIS solutions to support emerging needs in mapping-technology application development.
+                </p>
+              </article>
+              <article className="group grid sm:grid-cols-[96px_1fr] gap-4 sm:gap-8 px-3 sm:px-4 py-7 md:py-8 border-b border-[#DDE3EB] transition-colors duration-200 hover:bg-white">
+                <div className="flex items-center gap-3 self-start pt-1">
+                  <span className="h-2 w-2 rounded-full bg-[#E07000]" aria-hidden="true" />
+                  <span className="font-mono text-xs tracking-[0.08em] text-[#E07000]">2025</span>
+                </div>
+                <p className="text-[15px] md:text-base text-[#637083] leading-[1.75] tracking-[-0.005em]">
+                  Custom GIS web application for municipal corporations, integrated with PM Gati Shakti data.
                 </p>
               </article>
             </div>
@@ -149,29 +164,29 @@ export default function Home() {
         </div>
       </section>
 
-      <section data-testid="clientele" className="bg-white border-b border-[#DDE3EB] py-16 md:py-20 lg:py-24">
-        <div className="max-w-[1440px] mx-auto px-5 md:px-8 lg:px-12 xl:px-16 grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+      <section data-testid="clientele" className="bg-white border-b border-[#DDE3EB] py-14 md:py-16">
+        <div className="max-w-[1440px] mx-auto px-5 md:px-8 lg:px-12 xl:px-16 grid lg:grid-cols-12 gap-9 lg:gap-12 items-center">
           <div className="lg:col-span-3 reveal">
             <div className="eyebrow">Institutional trust</div>
-            <h2 className="mt-5 font-heading text-[#243D71] leading-tight" style={{ fontSize: "clamp(2.2rem, 4vw, 3.35rem)", fontWeight: 650 }}>
+            <h2 className="mt-5 font-heading text-[#243D71] leading-[1.08] tracking-[-0.03em]" style={{ fontSize: "clamp(2.15rem, 3.7vw, 3.2rem)", fontWeight: 650 }}>
               Our Clients
             </h2>
-            <p className="mt-5 text-[#637083] leading-relaxed">
+            <p className="mt-5 max-w-sm text-[0.98rem] text-[#637083] leading-[1.7]">
               Trusted by leading infrastructure organizations and institutions for dependable engineering expertise, precision, and execution.
             </p>
           </div>
 
-          <div className="lg:col-span-9 client-marquee overflow-hidden border-y border-[#DDE3EB] bg-[#F3F6FA] py-8 md:py-10" aria-label="RMCPL client organisations">
+          <div className="lg:col-span-9 client-marquee overflow-hidden border-y border-[#DDE3EB] bg-white py-2 md:py-3" aria-label="RMCPL client organisations">
             <div className="client-marquee-track">
               {[0, 1].map((copy) => (
-                <div key={copy} className="flex shrink-0 items-stretch gap-5 pr-5" aria-hidden={copy === 1 ? "true" : undefined}>
+                <div key={copy} className="flex shrink-0 items-stretch" aria-hidden={copy === 1 ? "true" : undefined}>
                   {TRUST_CLIENTS.map((client) => (
-                    <div key={`${copy}-${client.name}`} className="w-40 md:w-48 h-28 md:h-32 shrink-0 flex items-center justify-center bg-white border border-[#DDE3EB] px-5 md:px-6 shadow-[0_10px_28px_-24px_rgba(23,41,79,0.55)]">
+                    <div key={`${copy}-${client.name}`} className="w-44 md:w-48 h-24 md:h-28 shrink-0 flex items-center justify-center border-r border-[#E3E8EF] px-3 md:px-4">
                       <img
                         src={client.image}
                         alt={copy === 0 ? client.name : ""}
                         loading="lazy"
-                        className="w-full h-16 md:h-20 object-contain"
+                        className="w-full h-full max-h-[5.25rem] md:max-h-[6rem] object-contain scale-[1.28] transition-transform duration-300 hover:scale-[1.34]"
                       />
                     </div>
                   ))}
@@ -195,23 +210,43 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="mt-10 p-2 bg-[#17294F] grid md:grid-cols-2 gap-2 reveal" role="tablist" aria-label="Project portfolio type">
-            <PortfolioTab
-              active={portfolioView === "active"}
-              icon={Radio}
-              label="Active Projects"
-              description="Assignments currently in focus"
-              onClick={() => setPortfolioView("active")}
-              controls="home-project-panel"
-            />
-            <PortfolioTab
-              active={portfolioView === "past"}
-              icon={History}
-              label="Past Projects"
-              description="Completed project record"
-              onClick={() => setPortfolioView("past")}
-              controls="home-project-panel"
-            />
+          <div className="mt-10 reveal">
+            <div className="mb-3 flex items-center justify-between gap-5">
+              <div className="flex items-center gap-3">
+                <span className="font-heading text-[10px] font-bold uppercase tracking-[0.17em] text-[#637083]">Browse by project status</span>
+                <span className="h-px w-16 bg-[#DDE3EB]" aria-hidden="true" />
+              </div>
+              <div className="hidden items-center gap-2 font-heading text-xs font-semibold text-[#243D71] sm:flex" aria-live="polite">
+                <span className={`h-2 w-2 rounded-full ${portfolioView === "active" ? "bg-[#E07000] animate-pulse" : "bg-[#637083]"}`} aria-hidden="true" />
+                {portfolioView === "active" ? "Viewing active assignments" : "Viewing completed assignments"}
+              </div>
+            </div>
+            <div className="relative grid w-full grid-cols-2 gap-1.5 overflow-hidden rounded-2xl border border-[#D5DEE9] bg-[#F1F4F8] p-1.5 shadow-[0_22px_50px_-38px_rgba(23,41,79,0.75)]" role="tablist" aria-label="Project portfolio type">
+              <span
+                className="pointer-events-none absolute bottom-1.5 left-1.5 top-1.5 w-[calc(50%-0.5625rem)] overflow-hidden rounded-xl bg-[#243D71] shadow-[0_18px_36px_-22px_rgba(23,41,79,0.95)] transition-transform duration-500 ease-out"
+                style={{ transform: portfolioView === "active" ? "translateX(0)" : "translateX(calc(100% + 0.375rem))" }}
+                aria-hidden="true"
+              >
+                <span className="absolute -right-10 -top-14 h-32 w-32 rounded-full bg-white/[0.06]" />
+                <span className="absolute inset-x-6 bottom-0 h-0.5 bg-[#E07000]" />
+              </span>
+              <PortfolioTab
+                active={portfolioView === "active"}
+                icon={Radio}
+                label="Active Projects"
+                description="Assignments currently in focus"
+                onClick={() => setPortfolioView("active")}
+                controls="home-project-panel"
+              />
+              <PortfolioTab
+                active={portfolioView === "past"}
+                icon={History}
+                label="Past Projects"
+                description="Completed project record"
+                onClick={() => setPortfolioView("past")}
+                controls="home-project-panel"
+              />
+            </div>
           </div>
 
           <div id="home-project-panel" role="tabpanel" className="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-7 reveal reveal-stagger">
@@ -323,18 +358,28 @@ function PortfolioTab({ active, icon: Icon, label, description, onClick, control
       aria-selected={active}
       aria-controls={controls}
       onClick={onClick}
-      className={`group flex items-center gap-4 px-5 py-4 md:px-6 md:py-5 text-left transition-all duration-300 ${
-        active ? "bg-white shadow-lg" : "bg-transparent hover:bg-white/10"
+      className={`group relative z-10 flex min-w-0 items-center gap-3 overflow-hidden rounded-xl px-3 py-4 text-left transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#034EA1] focus-visible:ring-offset-2 sm:gap-4 sm:px-6 sm:py-5 ${
+        active
+          ? "bg-transparent"
+          : "bg-transparent hover:bg-white/75"
       }`}
     >
-      <span className={`grid h-11 w-11 shrink-0 place-items-center border ${active ? "border-[#DDE3EB] bg-[#F7F8FA] text-[#E07000]" : "border-white/20 text-white/70"}`}>
-        <Icon size={19} strokeWidth={1.8} aria-hidden="true" />
+      <span className={`grid h-10 w-10 shrink-0 place-items-center rounded-lg border transition-colors duration-300 sm:h-12 sm:w-12 ${
+        active
+          ? "border-white/15 bg-white/10 text-[#F2A14A]"
+          : "border-[#DDE3EB] bg-white text-[#637083] group-hover:border-[#BFCBDD] group-hover:text-[#034EA1]"
+      }`}>
+        <Icon size={19} strokeWidth={1.9} aria-hidden="true" />
       </span>
       <span className="min-w-0">
-        <span className={`block font-heading text-base md:text-lg font-semibold ${active ? "text-[#243D71]" : "text-white"}`}>{label}</span>
-        <span className={`mt-1 block text-xs ${active ? "text-[#637083]" : "text-white/55"}`}>{description}</span>
+        <span className={`block truncate font-heading text-sm font-semibold transition-colors duration-300 sm:text-base md:text-lg ${active ? "text-white" : "text-[#243D71]"}`}>{label}</span>
+        <span className={`mt-1 hidden truncate text-xs transition-colors duration-300 sm:block ${active ? "text-white/65" : "text-[#637083]"}`}>{description}</span>
       </span>
-      <ArrowRight size={17} className={`ml-auto transition-transform group-hover:translate-x-1 ${active ? "text-[#034EA1]" : "text-white/50"}`} aria-hidden="true" />
+      <span className={`ml-auto hidden h-9 w-9 shrink-0 place-items-center rounded-full transition-all duration-300 md:grid ${
+        active ? "bg-white/10 text-white" : "bg-white text-[#637083] group-hover:text-[#034EA1]"
+      }`}>
+        <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden="true" />
+      </span>
     </button>
   );
 }
