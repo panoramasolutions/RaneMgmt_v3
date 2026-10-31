@@ -21,22 +21,22 @@ const NEED_PATHS = [
     number: "02",
     need: "Verify or acquire land",
     guidance: "Ownership records, government surveys, acquisition and mutation.",
-    service: "Land Acquisition",
-    to: "/services/land-acquisition",
+    service: "Land Acquisition Consultancy",
+    to: "/services/land-acquisition-consultancy",
   },
   {
     number: "03",
     need: "Prepare plans or approvals",
-    guidance: "Master plans, development plans, project clearances and architecture.",
+    guidance: "Master plans, land-use studies, spatial databases and planning support.",
     service: "Master Planning",
     to: "/services/master-planning",
   },
   {
     number: "04",
     need: "Plan and manage delivery",
-    guidance: "DPRs, infrastructure planning, construction and project management.",
-    service: "Project Planning & Management",
-    to: "/services/project-planning-management",
+    guidance: "Feasibility studies, DPRs, environmental and statutory clearances.",
+    service: "Feasibility Studies & DPR",
+    to: "/services/feasibility-dpr",
   },
 ];
 
@@ -49,9 +49,9 @@ const GROUP_COPY = {
   },
   Capabilities: {
     index: "B",
-    title: "Planning & delivery capabilities",
+    title: "Assessment & clearance capabilities",
     description:
-      "Services that support feasibility, statutory approvals, design, valuation and the management of infrastructure delivery.",
+      "Specialist studies and regulatory support for feasibility, environmental, forest, wildlife, social-impact and aviation-height requirements.",
   },
 };
 
@@ -67,7 +67,7 @@ export default function Services() {
 
       <section data-testid="directory-summary" className="bg-[#F7F8FA] border-b border-[#DDE3EB]">
         <div className="container-wide py-10 lg:py-12 grid sm:grid-cols-3 border-x border-[#DDE3EB] reveal reveal-stagger">
-          <SummaryMetric value="09" label="Service areas" />
+          <SummaryMetric value={String(SERVICE_CATALOG.length).padStart(2, "0")} label="Service areas" />
           <SummaryMetric value={String(TOTAL_SUBSERVICES).padStart(2, "0")} label="Specialist services" />
           <SummaryMetric value="02" label="Service groups" />
         </div>

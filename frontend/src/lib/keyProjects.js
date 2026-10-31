@@ -118,13 +118,13 @@ export const KEY_PROJECTS = [
   },
   {
     slug: "samruddhi-mahamarg-package-5",
-    title: "Land Acquisition Consultancy – Samruddhi Mahamarg (Package-5)",
-    client: "Maharashtra State Road Development Corporation",
+    title: "Land Acquisition Consultancy – Samruddhi Mahamarg (Package 5)",
+    client: "Maharashtra State Road Development Corporation (MSRDC)",
     category: "Land Acquisition",
-    metric: "Package 5",
+    metric: "1200 Ha.",
     image: serviceImage("Land-Acquisition-Proposal-copy.webp"),
     summary: "Comprehensive land-acquisition consultancy covering proposals, revenue records, joint measurement, mutation updates and statutory coordination.",
-    overview: "RMCPL provided comprehensive Land Acquisition Consultancy Services for Package 5 of the Hindu Hrudaysamrat Balasaheb Thackeray Maharashtra Samruddhi Mahamarg. The assignment covered the complete process from proposal preparation through revenue record management.",
+    overview: "Rane Management Consultant Pvt. Ltd. provided comprehensive land acquisition consultancy services for Package 5 of the Hindu Hrudaysamrat Balasaheb Thackeray Maharashtra Samruddhi Mahamarg, one of Maharashtra's flagship expressway infrastructure projects. The assignment involved end-to-end assistance in the land acquisition process, including preparation of land acquisition proposals, collection and verification of revenue records, preparation of land acquisition schedules and area statements, Joint Measurement Survey (JMS) assistance, and follow-up and updating of mutation entries in 7/12 extracts. The company also facilitated coordination with the Deputy Superintendent of Land Records (Dy. SLR), Superintendent of Land Records (SLR), Sub-Divisional Officer (SDO), and Collector's Office for obtaining land acquisition data, revenue records, and supporting documentation, ensuring systematic processing and effective coordination throughout the land acquisition proceedings.",
     scope: [
       "Preparation of land acquisition proposal",
       "Assistance in the notification process",

@@ -1,17 +1,19 @@
 import {
-  Building2,
-  Compass,
-  Factory,
-  Landmark,
-  Layers,
-  Map,
-  Route,
-  Scan,
-  ShieldCheck,
+  Compass, FileCheck2, Landmark, Layers3, Map, Plane,
+  Route, ScanLine, ShieldCheck, Trees, Users, Waves,
 } from "lucide-react";
 
-const asset = (name) =>
-  `https://ranemanagementconsultant.com/uploads/Main-img/${name}`;
+const asset = (name) => `https://ranemanagementconsultant.com/uploads/Main-img/${name}`;
+
+const scope = (title, description, details = {}) => ({
+  title,
+  description,
+  scopeOfServices: details.scopeOfServices || [],
+  applications: details.applications || [],
+  deliverables: details.deliverables || "",
+  projects: [],
+  features: [],
+});
 
 export const SERVICE_CATALOG = [
   {
@@ -19,252 +21,94 @@ export const SERVICE_CATALOG = [
     group: "Expertise",
     title: "Engineering Survey",
     icon: Compass,
-    tagline:
-      "Crafting tomorrow's infrastructure with civil engineering, surveying and design excellence.",
-    summary:
-      "Licensed surveyors, engineers, GIS specialists and former Maharashtra Revenue Department professionals deliver land, topographic and alignment surveys using DGPS, ETS and drone technology.",
+    tagline: "Precision surveying for infrastructure planning, engineering design and project execution.",
+    summary: "RMCPL combines advanced surveying instruments, geospatial technology and experienced technical personnel to deliver precise survey solutions for complex infrastructure projects. Its equipment includes Electronic Total Stations, DGPS/GNSS receivers, automatic levels, one-second Total Stations, a Z+F Mobile LiDAR system and the IdeaForge Q6 V2 drone.",
     image: asset("SRA.webp"),
-    sourceUrl:
-      "https://ranemanagementconsultant.com/Service/Top_land_survey",
     subservices: [
-      {
-        title: "Land & Contour Survey",
-        image: asset("SRA.webp"),
-        description:
-          "Topographic and contour surveys record physical land features and elevation changes, with CAD deliverables prepared for direct use in design and planning workflows.",
-        projects: [
-          "Tarapur — 500 Acres",
-          "Panvel — 250 Acres",
-          "Ghatkopar–Versova — 500 Acres",
-          "Wankhede Stadium — 7 Acres",
-        ],
-        features: ["75,000 Ha. land surveyed", "200+ satisfied clients"],
-      },
-      {
-        title: "Cadastral & Revenue Survey",
-        image: asset("Cadastral-Revenue-Survey-New.webp"),
-        description:
-          "Cadastral surveys establish ownership, boundaries, easements and encumbrances, supported by Maharashtra revenue records including 7/12 extracts, 8A abstracts, village maps, gut books, mutation records and property cards.",
-        projects: [
-          "Jaigarh Port, Ratnagiri — 2,500 Acres",
-          "Solapur–Osmanabad Central Railway — 80 Kms",
-          "Thane–Diva Central Railway — 10 Kms",
-          "Boisar — 150 Acres",
-        ],
-        features: [
-          "Extensive revenue records database",
-          "25+ years of land revenue expertise",
-        ],
-      },
-      {
-        title: "GIS–GPS Survey",
-        image: asset("GIS-GPS-Survey.webp"),
-        description:
-          "DGPS equipment and modern mapping software capture precise geographic information for land surveys, asset management, environmental mapping and other geospatial programmes.",
-        projects: [
-          "MBMC — 19,520 Acres",
-          "Navi Mumbai — 24,650 Acres",
-          "Wana River, Wardha — 25 Kms",
-          "MCGM Region — 1,000 Kms",
-        ],
-        features: [
-          "Cutting-edge surveying equipment and software",
-          "Highly skilled and trained professionals",
-        ],
-      },
-      {
-        title: "Route & Final Location Survey",
-        image: asset("Route-Final-Location.webp"),
-        description:
-          "Route planning and final-location surveys support roads, railways, power lines, gas pipelines, water and sewer networks, and mobile tower installations.",
-        projects: [
-          "Talegaon–Kalwa — 14 Kms",
-          "Optical Fibre Cable, Kalyan–Murbad — 31 Kms",
-          "Jal Jeevan Mission — 3,183 Kms",
-          "Raigad — 6.50 Kms",
-        ],
-        features: [
-          "Decades of industry knowledge",
-          "Effective communication with project-affected persons",
-        ],
-      },
-      {
-        title: "Drone Survey",
-        image: asset("Drone-Survey.webp"),
-        description:
-          "DGCA-approved pilots and registered drones provide aerial surveying and mapping for land, infrastructure inspection and environmental monitoring assignments.",
-        projects: [
-          "Pen — 300 Acres",
-          "Uttan — 250 Acres",
-          "Virar — 250 Acres",
-          "Poladpur — 870 Acres",
-        ],
-        features: ["Trained drone pilots", "Over 1,000 hectares surveyed"],
-      },
-      {
-        title: "SRA Survey",
-        image: asset("SRA-(Slum-Rehabilitation-Authority)-copy.webp"),
-        description:
-          "As an SRA Mumbai empanelled agency, the team conducts biometric and topographic surveys, with WGS 84 data GIS-mapped and referenced to SRA base stations.",
-        projects: [
-          "Andheri — 14 Acres",
-          "Thane — 9 Acres",
-          "Malad — 5 Acres",
-          "Kurla — 8 Acres",
-        ],
-        features: ["Government empanelment", "Pioneering work in Mumbai"],
-      },
-      {
-        title: "Licensed Surveyor Site Elevation Certificate",
-        image: asset("Licensed-Survey-Certfied-Newer.webp"),
-        description:
-          "Licensed surveyors certify plot coordinates and site elevations for building approvals, with survey information also supplied in CAD format.",
-        projects: [
-          "Vikhroli — 35 Acres",
-          "Thane — 5 Acres",
-          "Mahim — 5 Acres",
-          "Thane — 2 Acres",
-        ],
-        features: ["Expert liaison capability", "Proficient submissions and filings"],
-      },
+      scope("Topographic & Contour Survey", "Detailed surveys capture existing ground conditions, terrain elevations, natural features and man-made structures for engineering design, infrastructure planning, land development and feasibility assessment.", {
+        scopeOfServices: ["Topographic land surveys and detailed feature mapping", "Contour surveys and spot-level measurements", "Digital Terrain Model (DTM) and elevation data preparation", "DGPS and Total Station ground surveys", "Mapping of existing structures, roads, utilities and site features", "Topographic plans, contour maps and CAD drawings"],
+        applications: ["Road, railway and metro planning", "Land development and site planning", "Drainage and stormwater planning", "Industrial, institutional and residential development"],
+        deliverables: "Topographic plans, contour drawings, spot-level data, terrain models and CAD files.",
+      }),
+      scope("Cadastral & Revenue Survey", "Interpretation, digitisation and integration of land records with field survey data supports land identification, boundary verification, area computation and land documentation.", {
+        scopeOfServices: ["Cadastral and property boundary surveys", "Collection, interpretation and digitisation of revenue records", "Integration of Village Maps, Gut Naksha, Tippan, Phalani and Aakarband records", "Mapping of Survey Numbers, Gat Numbers and CTS parcels", "Integration of 7/12 extracts and property-card information", "Revenue-map superimposition and parcel-area computation"],
+        applications: ["Government land administration", "Land acquisition and joint measurement", "Railway, highway and utility corridors", "Cadastral database development"],
+        deliverables: "Digitised cadastral maps, land-parcel plans, area statements, revenue-map overlays and survey drawings.",
+      }),
+      scope("DGPS, Geodetic Control & Precise Levelling", "Precision horizontal and vertical control establishes reliable coordinates and elevation references for engineering, infrastructure and mapping projects.", {
+        scopeOfServices: ["DGPS observations and coordinate determination", "Primary and secondary control-point establishment", "Survey-control network development", "Benchmark establishment and verification", "Precise levelling and elevation transfer", "Coordinate-system and datum integration", "Coordinate schedules and control reports"],
+        applications: ["Railway, metro, highway and bridge projects", "Construction setting out", "Topographic and cadastral surveys", "Large-area engineering and GIS mapping"],
+        deliverables: "Control-point coordinates, benchmark records, levelling data, survey-control reports and reference drawings.",
+      }),
+      scope("Route & Final Location Survey", "Route and Final Location Surveys provide alignment information and ground data for linear infrastructure design, alignment finalisation and land-acquisition planning.", {
+        scopeOfServices: ["Road, highway, railway and metro alignment surveys", "Power transmission-line route surveys", "Pipeline, water-supply and sewerage alignment surveys", "Longitudinal and cross-sectional surveys", "Chainage-wise terrain and obstruction mapping", "Affected land-parcel identification", "Alignment plans and coordinate schedules"],
+        applications: ["National and state highways", "Railway and metro infrastructure", "Power corridors", "Water, sewerage and pipeline projects"],
+        deliverables: "Route-alignment plans, longitudinal profiles, cross-sections, coordinate schedules and land-affected plans.",
+      }),
+      scope("Construction Setting Out & As-Built Survey", "Engineering survey support translates approved coordinates into accurate field positions and records the actual location, dimensions and elevations of completed work.", {
+        scopeOfServices: ["Construction setting out and coordinate marking", "Centreline, alignment and chainage marking", "Foundation, grid and structural-layout surveys", "Road-formation and infrastructure-level surveys", "Earthwork measurement", "As-built surveys and design verification", "As-built drawings and measurement records"],
+        applications: ["Road, bridge and highway construction", "Railway and metro infrastructure", "Building and industrial projects", "Utility installation"],
+        deliverables: "Setting-out coordinates, engineering survey drawings, as-built plans, level records and measurement reports.",
+      }),
+      scope("Drone, Aerial Survey & Photogrammetry", "Drone-based acquisition and photogrammetric processing capture high-resolution imagery and spatial information for terrain mapping, corridor surveys and project documentation.", {
+        scopeOfServices: ["Drone topographic and terrain surveys", "Aerial imagery and orthomosaic generation", "Photogrammetric mapping and 3D surface modelling", "DSM and DTM generation", "Road and corridor mapping", "Construction documentation", "Tree, structure and obstruction mapping"],
+        applications: ["Large-area land surveys", "Highway, railway and metro corridors", "Construction monitoring", "Terrain and environmental assessment"],
+        deliverables: "Georeferenced orthomosaics, aerial imagery, surface models, CAD drawings and project documentation.",
+      }),
+      scope("GIS & GPS Survey", "Field observations, GPS data, cadastral information and spatial datasets are integrated into accurate mapping solutions for planning, asset management and land administration.", {
+        scopeOfServices: ["GPS field-data collection", "GIS database creation", "Boundary and infrastructure mapping", "Map georeferencing and digitisation", "Spatial attributes and verification", "KML and shapefile preparation", "Thematic mapping and spatial analysis", "Web GIS-ready datasets"],
+        applications: ["Municipal infrastructure", "Government land and asset management", "Utility mapping", "Spatial database development"],
+        deliverables: "GIS databases, georeferenced maps, spatial datasets, thematic maps and web GIS-ready data.",
+      }),
+      scope("Railway Infrastructure & Track Survey", "Specialised conventional and geospatial surveys document railway corridors, trackside assets and associated infrastructure for planning and engineering applications.", {
+        scopeOfServices: ["Railway corridor and trackside surveys", "Station-yard and railway-land surveys", "Railway asset inventory", "Gradient and elevation mapping", "Mobile LiDAR railway mapping", "Trackside structure and obstruction mapping", "Railway boundary and parcel mapping"],
+        applications: ["Railway development and upgrades", "Railway land administration", "Trackside asset management", "Corridor planning"],
+        deliverables: "Railway corridor plans, trackside asset maps, elevation data, land plans and GIS/CAD documentation.",
+      }),
+      scope("SRA & Slum Rehabilitation Survey", "Detailed settlement, structure and spatial-data surveys support SRA projects, urban redevelopment and municipal slum-mapping assignments.", {
+        scopeOfServices: ["Slum-settlement and habitation mapping", "Structure identification and footprint mapping", "Building-area measurements", "GIS structure inventory", "Household and structure-data mapping", "Cadastral and DP integration", "Access-road, amenity and infrastructure mapping"],
+        applications: ["Slum rehabilitation", "Municipal slum mapping", "Urban settlement documentation", "Structure inventory and area assessment"],
+        deliverables: "Settlement maps, structure inventories, GIS databases, survey drawings and project-specific area statements.",
+      }),
+      scope("Licensed Surveyor Services & Site Certification", "Qualified and licensed professionals prepare plot surveys, site measurements and survey documentation for property applications, development proposals and statutory submissions.", {
+        scopeOfServices: ["Plot and property surveys", "Site measurements and area verification", "Boundary documentation", "Site elevation and level surveys", "Survey plans and supporting drawings", "Licensed Surveyor certificates where applicable", "Municipal and planning submissions"],
+        applications: ["Property documentation", "Development submissions", "Municipal applications", "Site-area and elevation verification"],
+        deliverables: "Site survey drawings, plot plans, area statements and applicable survey certificates.",
+      }),
     ],
   },
   {
-    slug: "land-acquisition",
+    slug: "mobile-lidar-3d-mapping",
     group: "Expertise",
-    title: "Land Acquisition",
+    title: "Mobile LiDAR & 3D Mapping Solutions",
+    icon: ScanLine,
+    tagline: "Capturing reality. Delivering precision. Enabling smarter infrastructure.",
+    summary: "RMCPL provides Mobile LiDAR mapping and 3D geospatial solutions using the Z+F PROFILER 9020C scanner, Applanix POS LV125 positioning and specialist processing platforms including LiDAR360, LiDAR360 MLS and Pix4D.",
+    image: asset("Route-Final-Location.webp"),
+    subservices: [
+      scope("Mobile LiDAR & 3D Mapping", "Advanced 3D laser scanning, corridor mapping and point-cloud processing capture and document existing infrastructure with detailed spatial information.", {
+        scopeOfServices: ["Mobile LiDAR surveys for railway, road and infrastructure corridors", "3D mapping of assets, structures and visible infrastructure", "Point-cloud processing, classification and feature extraction", "Terrain modelling, profiles and cross-sections", "Pix4D photogrammetric processing", "Engineering drawings, 3D models and GIS-compatible datasets"],
+        applications: ["Railway infrastructure", "Highways and metro corridors", "Infrastructure asset mapping", "Existing-condition documentation"],
+        deliverables: "Georeferenced point clouds, 3D models, feature-extraction drawings, topographic maps, profiles, cross-sections and CAD/GIS-ready datasets.",
+      }),
+    ],
+  },
+  {
+    slug: "land-acquisition-consultancy",
+    group: "Expertise",
+    title: "Land Acquisition Consultancy",
     icon: Landmark,
-    tagline: "From vision to possession—your partner in land acquisition.",
-    summary:
-      "End-to-end support for government, semi-government and private infrastructure projects, from acquisition proposals and joint measurement through disbursement support and mutation updates.",
+    tagline: "From land identification to possession — your partner in land acquisition.",
+    summary: "RMCPL provides end-to-end land acquisition consultancy for government, semi-government and private infrastructure projects, from parcel identification and revenue-record verification to joint measurement, statutory documentation, possession coordination and post-acquisition mutation.",
     image: asset("Land-Acquisition-Proposal-copy.webp"),
-    sourceUrl:
-      "https://ranemanagementconsultant.com/Service/Top_land_acquisition_consultants_in_Mumbai",
     subservices: [
-      {
-        title: "Land Acquisition Proposal",
-        image: asset("Land-Acquisition-Proposal-copy.webp"),
-        description:
-          "Revenue records and ownership details for project-affected persons are researched, compiled and submitted to the Collector's Office, with support for verification, correction and statutory notices.",
-        projects: [
-          "Rail Connectivity to Dighi Port — 35 Kms",
-          "Kalyan–Kasara 3rd Line Project — 67 Kms",
-          "Kalyan–Murbad Central Railway — 28 Kms",
-          "JNPT–Bhilad — 200 Kms",
-        ],
-        features: ["Ownership identification precision", "Transparent surveying practices"],
-      },
-      {
-        title: "Joint Measurement Survey / Government Survey",
-        image: asset("Joint-Measurement-Survey-copy.webp"),
-        description:
-          "The team supports Revenue Department surveys with DGPS and drones, preparing Joint Measurement Survey sheets and Vivaran Patra area statements in the presence of stakeholders.",
-        projects: [
-          "Nagpur–Mumbai Super Communication Expressway — 1,300 Ha.",
-          "Thane–Diva Central Railway — 10 Kms",
-          "JNPT–Bhilad — 200 Kms",
-          "Dolvi Industrial Area — 209 Ha.",
-        ],
-        features: ["Efficient measurement process", "Verification and authentication"],
-      },
-      {
-        title: "Government Revenue Record Compilation",
-        image: asset("Govt-Revenue-copy.webp"),
-        description:
-          "Government land records are gathered, checked and cross-referenced to verify ownership and boundaries before final land plans and area statements are authenticated.",
-        projects: [
-          "Nagpur–Mumbai Super Communication Expressway — 1,300 Ha.",
-          "Panvel — 250 Acres",
-          "Kalyan–Murbad Central Railway — 28 Kms",
-          "Kalyan–Kasara 3rd Line Project — 67 Kms",
-        ],
-        features: ["Thorough ownership examination", "Accuracy and compliance assurance"],
-      },
-      {
-        title: "Trees & Structure Valuation",
-        image: asset("Trees-Structure-Valuation-copy.webp"),
-        description:
-          "Photographic inventories and dimensional assessments record tree and structure details for valuation by Agriculture, Forest and Public Works departments.",
-        projects: [
-          "JNPT–Bhilad — 200 Kms",
-          "Panvel — 250 Acres",
-          "Thane–Diva Central Railway — 10 Kms",
-          "Nagpur–Mumbai Super Communication Expressway — 1,300 Ha.",
-        ],
-        features: [],
-      },
-      {
-        title: "Mutation of Land",
-        image: asset("Mutation-of-Land-copy.webp"),
-        description:
-          "Following compensation disbursement, the team coordinates with acquiring bodies, the Collector's Office and Revenue Department to transfer ownership details to the acquiring body.",
-        projects: [],
-        features: ["Comprehensive data integration", "Transparent surveying practices"],
-      },
-    ],
-  },
-  {
-    slug: "land-record-verification-modification",
-    group: "Expertise",
-    title: "Land Record Verification & Modification",
-    icon: Scan,
-    tagline: "A trusted partner for land record verification and modification.",
-    summary:
-      "Procurement, verification and updating of government land records, supported by TILR surveys, cadastral expertise and liaison with revenue authorities.",
-    image: asset("Revenue-Update-copy.webp"),
-    sourceUrl:
-      "https://ranemanagementconsultant.com/Service/Land_Record_Village_Map",
-    subservices: [
-      {
-        title: "Revenue Data Procurement",
-        image: asset("Revenue-Update-copy.webp"),
-        description:
-          "The team obtains 7/12 and 8A abstracts, village and survey maps, gutbook maps, CTS maps and related village forms to establish the legal, geographic and mutation status of land.",
-        projects: [
-          "JNPT–Bhilad — 200 Kms",
-          "Kalyan–Kasara 3rd Line Project — 67 Kms",
-          "Samruddhi Mahamarg, Bhiwandi–Shahpur — 1,300 Ha.",
-          "Barvi Dam — 260 Ha.",
-        ],
-        features: ["Streamlined revenue data procurement", "Comprehensive property knowledge"],
-      },
-      {
-        title: "Assistance in Government Survey (T.I.L.R. Survey)",
-        image: asset("Assistance-in-Government-copy.webp"),
-        description:
-          "Procedural and field support helps individuals, builders and government bodies complete TILR and Dy.SLR surveys for permissions, development-plan annotations and boundary measurement.",
-        projects: [
-          "Ahmednagar — 360 Cases",
-          "Mira–Bhayander — 100 Acres",
-          "Mira–Bhayander — 35 Acres",
-          "Kalyan–Kasara 3rd Line Project — 67 Kms",
-        ],
-        features: ["Expedited government survey processes", "Support for development goals"],
-      },
-      {
-        title: "Land Ownership Records Update",
-        image: asset("Land-Ownership-Records-Update-copy.webp"),
-        description:
-          "Historic ownership records are traced across government departments and mutation entries are updated so current land ownership is accurately documented.",
-        projects: [
-          "Land Details Evaluation, Palghar — 22 Kms",
-          "Land Clearance, Thane — 5 Kms",
-          "Kalyan–Kasara 3rd Line Project — 67 Kms",
-          "Kalyan–Asangaon, Mumbai Division — 30 Kms",
-        ],
-        features: ["Streamlined ownership information retrieval", "Timely mutation updates"],
-      },
-      {
-        title: "Sub-Division of Land",
-        image: asset("Land_Contour@2x.png"),
-        description:
-          "Topographic survey, notional boundary formation, government measurement fees and liaison with Dy.SLR and Tahsildar offices are coordinated through the full subdivision process.",
-        projects: [
-          "Six-Lane Road, Bhiwandi–Kalyan Shilphata — 18 Kms",
-          "Ahmednagar — 360 Cases",
-        ],
-        features: ["Integrated subdivision support", "Expert land demarcation assistance"],
-      },
+      scope("Land Acquisition Proposal & Documentation", "Land records, ownership particulars, survey drawings and area statements are integrated into structured acquisition proposals for submission to the concerned authorities.", { scopeOfServices: ["Affected-parcel identification", "Survey, Gat and CTS particulars", "Parcel schedules and ownership details", "Land plans and area statements", "Discrepancy verification", "Statutory documentation and follow-up"], applications: ["Railway and highway projects", "Metro and transport corridors", "Industrial development", "Municipal infrastructure"], deliverables: "Land acquisition proposals, parcel schedules, land plans, area statements and supporting documentation." }),
+      scope("Land Record Verification & Ownership Identification", "Available land records are examined to identify affected parcels and establish correspondence between ownership particulars, cadastral maps and project alignments.", { scopeOfServices: ["7/12 extract and property-card examination", "Survey, Gat and CTS verification", "Ownership particulars", "Cadastral cross-referencing", "Boundary and area discrepancies", "Affected-parcel mapping", "Ownership schedules"], applications: ["Acquisition planning", "Infrastructure corridors", "Railway and highway acquisition", "Municipal redevelopment"], deliverables: "Land-record compilations, ownership schedules, parcel-identification plans and discrepancy statements." }),
+      scope("Joint Measurement Survey & Land Demarcation", "Technical and field support for Joint Measurement Surveys uses DGPS and Total Station technology to measure, demarcate and reconcile project-affected parcels.", { scopeOfServices: ["Stakeholder and authority coordination", "DGPS and Total Station measurement", "Affected-parcel demarcation", "Alignment superimposition", "JMS drawings", "Affected-area reconciliation", "Vivaran Patra preparation"], applications: ["Railway, highway and metro corridors", "Road and public infrastructure", "Industrial and utility corridors", "Government land demarcation"], deliverables: "JMS drawings, land-demarcation plans, affected-area statements, coordinate data and supporting survey records." }),
+      scope("Revenue Records & Cadastral Mapping", "Government revenue records and cadastral maps are compiled, interpreted and digitised to create a reliable spatial reference for acquisition and infrastructure planning.", { scopeOfServices: ["Village Maps, Gut Naksha, Tippan, Phalani and Aakarband", "7/12 and property-card compilation", "Cadastral digitisation and georeferencing", "Alignment integration", "Parcel mapping", "Land plans and area statements"], applications: ["Acquisition proposals", "Railway and highway mapping", "Government land identification", "Municipal projects"], deliverables: "Digitised revenue maps, cadastral overlays, parcel-wise land plans, area statements and structured datasets." }),
+      scope("Trees, Structures & Asset Inventory", "Pre-acquisition surveys document trees, buildings, structures and other assets through measurements, photography and location mapping for assessment by competent departments.", { scopeOfServices: ["Affected-tree and structure mapping", "Photographic documentation", "Tree particulars", "Structure measurement", "Location-based asset inventories", "GIS and CAD mapping", "Departmental coordination"], applications: ["Railway and highway acquisition", "Metro and road projects", "Industrial development", "Tree-cutting and valuation support"], deliverables: "Tree and structure inventories, photographic records, asset-location plans and valuation-support schedules." }),
+      scope("Acquisition Proceedings & Possession Coordination", "Technical and documentation support helps acquiring bodies and government departments move proposals, measurements and possession records through the acquisition process.", { scopeOfServices: ["Government-office coordination", "Proceeding documentation", "Land-schedule follow-up", "Parcel-wise status", "Compensation-document support", "Possession and handover records", "Project-monitoring reports"], applications: ["Major transport infrastructure", "Government acquisition", "Railway and highway corridors", "Industrial and utility projects"], deliverables: "Acquisition-status reports, parcel-wise land schedules, supporting documentation and possession-status statements." }),
+      scope("Mutation & Post-Acquisition Record Updates", "After the relevant transfer or vesting of land, mutation-related documentation is coordinated to update revenue and city-survey records through the applicable process.", { scopeOfServices: ["Acquisition-document compilation", "Mutation proposals", "Acquired-parcel mapping", "Authority coordination", "Mutation-entry follow-up", "7/12 and property-card updates", "Parcel-wise status statements"], applications: ["Railway and highway acquisition", "Government infrastructure", "Transfer or vesting of land", "Post-acquisition administration"], deliverables: "Mutation proposals, supporting land-record compilations, updated-record references and parcel-wise status reports." }),
     ],
   },
   {
@@ -272,322 +116,158 @@ export const SERVICE_CATALOG = [
     group: "Expertise",
     title: "Master Planning",
     icon: Map,
-    tagline: "Empowering governance through masterful mapping strategies.",
-    summary:
-      "Survey, revenue-record integration and statutory planning come together to create existing land use and development plans for towns, cities and urban local bodies.",
+    tagline: "Empowering governance through informed planning and geospatial intelligence.",
+    summary: "RMCPL integrates topographic surveys, cadastral information, revenue records and spatial datasets to support Existing Land Use plans, Development Plans and urban-planning documentation for municipal and planning authorities.",
     image: asset("City-Survey-copy.webp"),
-    sourceUrl:
-      "https://ranemanagementconsultant.com/Service/Master_planning_in_city_survey",
     subservices: [
-      {
-        title: "City Survey",
-        image: asset("City-Survey-copy.webp"),
-        description:
-          "Topographic and cadastral survey data is integrated with digitised government revenue records to produce current city plans, assign property numbers and support property-card issuance.",
-        projects: [
-          "Thane Municipal Corporation",
-          "Mira Bhayander Municipal Corporation",
-          "Vasai Virar Municipal Corporation",
-          "Kalyan Dombivli Municipal Corporation",
-        ],
-        features: ["Pioneering expertise", "Extensive revenue-document knowledge"],
-      },
-      {
-        title: "Existing Land Use Plan Analysis & Evaluation (ELU)",
-        image: asset("ELU-Ne.webp"),
-        description:
-          "Topographic survey, city-survey sheets and revenue records are combined into an Existing Land Use plan and taken through Town Planning and Dy.SLR approval before public verification.",
-        projects: [
-          "Talasari Nagar Panchayat",
-          "Kankavli Nagar Panchayat",
-          "Mangaon Nagar Panchayat",
-          "Khalapur Nagar Panchayat",
-        ],
-        features: ["Comprehensive data integration", "Transparent planning practices"],
-      },
-      {
-        title: "Development Plan",
-        image: asset("Development-Plan.webp"),
-        description:
-          "Development plans build on a verified ELU and address zoning, infrastructure improvement and future land use for sustainable urban growth.",
-        projects: [
-          "Talasari Nagar Panchayat",
-          "Kankavli Nagar Panchayat",
-          "Mangaon Nagar Panchayat",
-          "Khalapur Nagar Panchayat",
-        ],
-        features: ["Empanelled by Maharashtra State Town Planning Department"],
-      },
+      scope("City Survey & Cadastral Mapping", "Field surveys, cadastral maps, property records and government revenue documents are integrated for urban property mapping and municipal administration.", { scopeOfServices: ["Urban topographic and cadastral surveys", "City-survey record digitisation", "Property-card integration", "CTS and boundary mapping", "Cadastral-map updating", "Property-level spatial data"], applications: ["Municipal property mapping", "Urban land administration", "Cadastral modernisation", "Urban-planning base maps"], deliverables: "City-survey maps, cadastral layers, property-level spatial datasets and supporting survey documentation." }),
+      scope("Existing Land Use Survey & Plan Preparation", "Field observations, cadastral maps and revenue records document current physical development and land-utilisation patterns within planning areas.", { scopeOfServices: ["ELU surveys and field verification", "Land-use classification", "Agricultural and open-space mapping", "Transport and amenity mapping", "Cadastral integration", "Thematic GIS layers", "Public-verification support"], applications: ["Nagar Panchayat and municipal planning", "Development Plans", "Urban-growth assessment", "Planning-area base maps"], deliverables: "ELU maps, land-use classifications, thematic GIS layers and supporting planning documentation." }),
+      scope("Development Plan Preparation & Planning Support", "Verified base maps and ELU information support proposed land use, infrastructure networks and planning reservations under the applicable statutory framework.", { scopeOfServices: ["DP base maps", "ELU and cadastral integration", "Proposed land-use and zoning mapping", "DP road digitisation", "Amenity and reservation mapping", "GIS/CAD planning drawings", "Area computation"], applications: ["Nagar Panchayat and Municipal Council plans", "Municipal Corporation planning", "Infrastructure planning", "Reservation mapping"], deliverables: "DP base maps, proposed-land-use layers, road and reservation maps, area statements and planning drawings." }),
+      scope("Revenue Record Integration & Land Database Development", "Government land records are digitised and integrated into structured spatial databases for urban planning, property mapping and land administration.", { scopeOfServices: ["Revenue-map digitisation", "7/12 and property-card compilation", "Map georeferencing", "CTS, Survey and Gat integration", "ELU and DP superimposition", "Spatial database creation", "Boundary-discrepancy identification"], applications: ["Urban land administration", "ELU and DP preparation", "City surveys", "Land-record modernisation"], deliverables: "Digitised revenue records, cadastral databases, georeferenced maps and integrated land-information layers." }),
+      scope("Development Plan Implementation & Reservation Mapping", "Cadastral information, DP proposals and land records are combined to identify, quantify and document land affected by Development Plan provisions.", { scopeOfServices: ["DP roads and road-widening maps", "Affected-parcel identification", "Cadastral superimposition", "Reservation-area computation", "Land-requirement statements", "Amenity mapping", "GIS documentation"], applications: ["DP implementation", "Road widening", "Reservation identification", "Public infrastructure"], deliverables: "Reservation maps, DP-road overlays, parcel-wise area statements and GIS-based planning datasets." }),
+      scope("GIS-Based Urban Planning & Spatial Analysis", "GIS technologies organise, analyse and visualise land use, cadastral records, infrastructure networks and administrative boundaries for planning decisions.", { scopeOfServices: ["Planning-area GIS databases", "Land-use and infrastructure themes", "Cadastral and revenue integration", "Road and reservation analysis", "Digital planning layers", "Parcel-level analysis", "Web GIS-ready datasets"], applications: ["Municipal governance", "Urban-infrastructure assessment", "Development Plan analysis", "Land-use monitoring"], deliverables: "GIS databases, thematic maps, spatial-analysis outputs and web GIS-ready planning layers." }),
     ],
   },
   {
     slug: "geospatial-it-solutions",
     group: "Expertise",
     title: "Geospatial & IT Solutions",
-    icon: Layers,
+    icon: Layers3,
     tagline: "Unlocking geospatial potential, powering your digital future.",
-    summary:
-      "Resource mapping, municipal GIS and purpose-built software convert field and revenue information into accessible systems for infrastructure management and public decision-making.",
+    summary: "RMCPL transforms survey data, revenue records and infrastructure information into custom GIS applications, map-based portals, spatial databases and purpose-built software for infrastructure management, municipal administration and informed decision-making.",
     image: asset("Resource-Mapping-copy.webp"),
-    sourceUrl:
-      "https://ranemanagementconsultant.com/Service/Geospatial_Land_Surveyor",
     subservices: [
-      {
-        title: "Resource Mapping",
-        image: asset("Resource-Mapping-copy.webp"),
-        description:
-          "GIS datasets and attributes support the management of transmission lines, electrical systems, sewer and water networks, roads and fibre-optic infrastructure.",
-        projects: [
-          "Talegaon — 13.5 Kms",
-          "Vasai — 10 Ha.",
-          "Optical Fibre Cable, Kalyan–Murbad — 37.50 Kms",
-          "Optical Fibre Cable, Mira–Bhayander — 5 Kms",
-        ],
-        features: ["Detailed network information", "Informed decision-making"],
-      },
-      {
-        title: "Municipal GIS",
-        image: asset("Muncipal-GIS-copy.webp"),
-        description:
-          "Custom GIS solutions combine topographic features, state revenue data and other municipal information, with the supporting software maintained for each programme.",
-        projects: [
-          "Navi Mumbai — 20,394 Parcels",
-          "Road Utilities & Encroachments — 79 Sq. Kms",
-        ],
-        features: ["Public-service solutions", "Integrated mapping"],
-      },
-      {
-        title: "Software Development",
-        image: asset("Software-Development-copy.webp"),
-        description:
-          "Custom applications and system improvements are designed, developed and maintained for organisations that need reliable, purpose-built digital tools.",
-        projects: ["Tree Inventory Android App"],
-        features: ["Tailored solutions", "Reliable systems"],
-      },
+      scope("Custom GIS Web Application Development", "Custom interactive platforms enable organisations to visualise, manage, analyse and update spatial information around their own data, roles and workflows.", { scopeOfServices: ["Web GIS platforms", "Survey and cadastral integration", "Map search and spatial analysis", "Dashboards and reports", "Role-based access", "System integration", "Maintenance and upgrades"], applications: ["Municipal portals", "Land-information systems", "Infrastructure platforms", "Planning applications"], deliverables: "Custom GIS applications, map interfaces, spatial databases, reporting modules and technical documentation." }),
+      scope("Municipal GIS & Urban Information Systems", "Integrated cadastral, topographic, revenue, planning and utility information creates a reliable spatial system for urban administration.", { scopeOfServices: ["Municipal GIS databases", "City-survey and property integration", "DP-road and reservation mapping", "Property-level mapping", "Infrastructure-asset management", "Departmental map systems", "Ongoing data support"], applications: ["Municipal administration", "Urban planning", "Property management", "Public-service delivery"], deliverables: "Municipal GIS databases, integrated maps, spatial portals, asset layers, attribute databases and reports." }),
+      scope("Resource Mapping & Infrastructure GIS", "Field survey information and infrastructure records are converted into structured GIS datasets for network planning, monitoring and asset management.", { scopeOfServices: ["Utility and corridor mapping", "Road and electrical assets", "Water and sewerage networks", "OFC route mapping", "Coordinate and attribute integration", "Network maps and databases", "Dataset maintenance"], applications: ["Roads and railways", "Power transmission", "Water and sewerage", "Telecommunications"], deliverables: "Infrastructure GIS layers, network maps, asset databases, attribute datasets and technical reports." }),
+      scope("Custom Software & Application Development", "Purpose-built digital tools combine surveying, GIS and infrastructure knowledge for field collection, asset inventory, reporting and workflow management.", { scopeOfServices: ["Custom software", "Android field applications", "Data collection and validation", "GIS-enabled systems", "Workflow automation", "System integration", "Testing and support"], applications: ["Field-survey management", "Tree and asset inventory", "Infrastructure inspections", "Departmental workflows"], deliverables: "Custom and Android applications, data-collection modules, reporting tools, documentation and support." }),
+      scope("GIS Database Development & Spatial Data Integration", "Survey outputs, cadastral maps, revenue records and infrastructure information are organised into consistent, accessible geospatial databases.", { scopeOfServices: ["GIS database design", "Survey and cadastral integration", "Attribute standardisation", "Data cleaning and validation", "KML, shapefile and CAD conversion", "Web and desktop GIS layers", "Database maintenance"], applications: ["Land-information systems", "Municipal databases", "Infrastructure management", "Enterprise GIS"], deliverables: "Structured GIS databases, validated spatial layers, attribute tables, converted datasets and documentation." }),
+      scope("GIS-Based Spatial Analysis & Decision Support", "Geospatial analysis converts location-based data into practical insight for infrastructure planning, land assessment and resource management.", { scopeOfServices: ["Spatial analysis and thematic mapping", "Land-use and infrastructure mapping", "Cadastral and utility overlays", "Area and location assessment", "Conflict identification", "Analytical reports", "Map-based decision tools"], applications: ["Infrastructure planning", "Land acquisition", "Urban development", "Utility and resource management"], deliverables: "Thematic maps, spatial-analysis reports, area assessments, analytical datasets and decision-support visualisations." }),
     ],
   },
   {
-    slug: "project-planning-management",
+    slug: "land-record-verification-modification",
+    group: "Expertise",
+    title: "Land Record Verification & Modification",
+    icon: FileCheck2,
+    tagline: "A trusted partner for land record verification and modification.",
+    summary: "RMCPL supports infrastructure projects, property owners, developers and public agencies with land-record procurement, ownership-history verification, mutation assistance, government measurement, subdivision and coordination with Revenue and Land Records authorities.",
+    image: asset("Revenue-Update-copy.webp"),
+    subservices: [
+      scope("Revenue Record Procurement & Verification", "Government land records are procured, compiled and examined for consistency in parcel identity, ownership, area and survey boundaries.", { scopeOfServices: ["7/12 extracts and 8A abstracts", "Village Forms and revenue records", "Akarband, Tippan, Phalani and maps", "CTS maps and property cards", "Parcel and area review", "Mutation history", "Cadastral correlation"], applications: ["Land acquisition", "Property due diligence", "Ownership verification", "Development planning"], deliverables: "Compiled record sets, parcel information, verification statements, cadastral references and discrepancy reports." }),
+      scope("Government Land Survey Assistance (TILR / Dy.SLR)", "Technical and procedural assistance supports official land measurement and boundary surveys conducted by competent Land Records authorities.", { scopeOfServices: ["Applications and supporting records", "Forms and measurement fees", "TILR, Dy.SLR and SLR coordination", "Cadastral interpretation", "Field coordination", "Government-record correlation", "Application follow-up"], applications: ["Boundary verification", "Official measurement", "Infrastructure development", "Subdivision"], deliverables: "Survey-application documents, supporting records, field reports, cadastral references and technical measurement documentation." }),
+      scope("Land Ownership Records & Mutation Updates", "Historical ownership documents and mutation entries are examined to identify inconsistencies and coordinate prescribed updates with Revenue authorities.", { scopeOfServices: ["Historical-record tracing", "7/12, 8A and mutation-register review", "Mutation applications", "Updates following acquisition, purchase or inheritance", "Authority coordination", "Application tracking", "Updated-record verification"], applications: ["Land acquisition", "Ownership transfers", "Inherited and purchased land", "Post-acquisition updates"], deliverables: "Historical record compilations, mutation documentation, ownership summaries and copies of updated records where issued." }),
+      scope("Land Subdivision & Phalani Assistance", "Survey-based parcel boundaries, area calculations and supporting plans assist the prescribed subdivision process with Land Records and Revenue authorities.", { scopeOfServices: ["Record and ownership review", "Topographic and boundary survey", "Subdivision layouts", "Area calculations", "Application support", "Authority coordination", "Government demarcation support"], applications: ["Parcel division", "Property transactions", "Infrastructure land requirements", "Development proposals"], deliverables: "Subdivision plans, survey drawings, area statements, boundary references and supporting submission documents." }),
+      scope("Cadastral Map Verification & Record Correlation", "Cadastral, village and City Survey maps are correlated with revenue records, coordinates and site information to identify differences in boundaries and areas.", { scopeOfServices: ["Map and record review", "Digitisation and georeferencing", "Coordinate correlation", "Project-alignment overlays", "Discrepancy identification", "Parcel-wise area statements", "Verification support"], applications: ["Acquisition proposals", "Corridor planning", "Boundary assessment", "Record reconciliation"], deliverables: "Digitised cadastral maps, georeferenced land plans, area statements, comparison drawings and discrepancy reports." }),
+      scope("Land Record Correction & Modification Assistance", "Technical records and drawings support eligible land-record correction or modification applications, subject to the competent authority's procedure and approval.", { scopeOfServices: ["Discrepancy review", "Supporting records and plans", "Technical statements", "Correction applications", "Authority coordination", "Application follow-up", "Revised-record review"], applications: ["Revenue discrepancies", "Acquisition documentation", "Cadastral reconciliation", "Post-acquisition updates"], deliverables: "Discrepancy statements, application documentation, survey plans, correspondence and revised-record references where approved." }),
+    ],
+  },
+  {
+    slug: "feasibility-dpr",
     group: "Capabilities",
-    title: "Project Planning & Management",
+    title: "Feasibility Studies & Detailed Project Reports (DPR)",
     icon: Route,
-    tagline: "From concept to completion—your project, our expertise.",
-    summary:
-      "Feasibility, detailed project reporting, design and construction management for transport, water, drainage and public-realm infrastructure.",
+    tagline: "Transforming infrastructure concepts into feasible, well-planned projects.",
+    summary: "RMCPL supports project authorities in evaluating feasibility, site conditions, technical and land requirements, quantities, costs and project alternatives by integrating engineering surveys, GIS mapping, land records and preliminary engineering assessment.",
     image: asset("Road-Network.webp"),
-    sourceUrl:
-      "https://ranemanagementconsultant.com/Service/Construction_Project_management_company",
     subservices: [
-      {
-        title: "Road Network",
-        image: asset("Road-Network.webp"),
-        description:
-          "Road feasibility and DPR services cover route alignment, layout, environmental impact, risk and construction-phase project management.",
-        projects: [],
-        features: [],
-      },
-      {
-        title: "Rail Network",
-        image: asset("Rail-Network.webp"),
-        description:
-          "Rail network, foot-over-bridge and road-over-bridge planning covers alignment, curves, track layout, design, impact assessment, DPRs and construction management.",
-        projects: [],
-        features: [],
-      },
-      {
-        title: "Water Supply",
-        image: asset("Water-Supply.webp"),
-        description:
-          "Water-supply planning includes treatment-plant siting, distribution networks, treatment systems, pumping stations, risk analysis, DPRs and project management.",
-        projects: [],
-        features: [],
-      },
-      {
-        title: "Sewage",
-        image: asset("Sewage.webp"),
-        description:
-          "Sewer-network and treatment-plant design addresses flows, treatment stages, sludge, reuse or disposal, controls, safety, costs and construction oversight.",
-        projects: [],
-        features: [],
-      },
-      {
-        title: "Storm Water",
-        image: asset("Storm-Water.webp"),
-        description:
-          "Storm-water systems are designed from site conditions, rainfall and environmental factors, with sizing, component selection, green infrastructure and construction management included.",
-        projects: [],
-        features: [],
-      },
-      {
-        title: "Skywalks",
-        image: asset("Land_Contour@2x_(1).png"),
-        description:
-          "Skywalk planning combines pedestrian flow, traffic, architectural integration, structural design, materials and construction management.",
-        projects: [],
-        features: [],
-      },
-      {
-        title: "Bridges",
-        image: asset("Land_Contour@2x_(2).png"),
-        description:
-          "Bridge and flyover services cover traffic and load assessment, structural and architectural design, tendering, quality control and programme oversight.",
-        projects: [],
-        features: [],
-      },
+      scope("Road Network", "Feasibility and DPR support for roads, highways and expressways, including route surveys, alignment assessment, topographic mapping, land requirements, preliminary engineering and cost estimation."),
+      scope("Rail Network", "Feasibility and DPR support for railway infrastructure, including alignment surveys, existing-infrastructure mapping, land assessment, preliminary studies and project documentation."),
+      scope("Water Supply", "Feasibility and DPR support for water-supply infrastructure, including network mapping, route surveys, site assessment, land identification and preliminary quantities and costs."),
+      scope("Sewage Networks", "Feasibility and DPR support for sewage collection and conveyance systems, including route assessment, topographic surveys, network mapping and technical data compilation."),
+      scope("Stormwater Drainage", "Feasibility and DPR support including contour surveys, terrain analysis, drainage routes, catchment-related spatial analysis and preliminary engineering inputs."),
+      scope("Skywalks & Pedestrian Infrastructure", "Feasibility and DPR support for skywalks, foot overbridges and pedestrian connectivity through site assessment, mapping, land requirements and preliminary costing."),
+      scope("Bridges & Structures", "Feasibility and DPR support for bridges and associated infrastructure through site surveys, approach-alignment assessment, land calculations and technical planning inputs."),
     ],
   },
   {
-    slug: "project-clearance",
+    slug: "forest-diversion-clearance",
     group: "Capabilities",
-    title: "Project Clearance",
-    icon: ShieldCheck,
-    tagline: "Seamless approvals, stress-free projects.",
-    summary:
-      "Specialist coordination for environmental, forest, wildlife, coastal and aviation approvals—from documentation and portal submissions through conditions and post-clearance compliance.",
+    title: "Forest Diversion & Clearance Consultancy",
+    icon: Trees,
+    tagline: "Accurate mapping, technical documentation and regulatory coordination for infrastructure development.",
+    summary: "RMCPL identifies affected forest land, conducts DGPS surveys, prepares geo-referenced maps and technical documentation, and coordinates with the Forest Department and other authorities. Support also covers compensatory-afforestation mapping, tree-enumeration coordination and compliance documentation.",
     image: asset("Land-Contour-grass.webp"),
-    sourceUrl:
-      "https://ranemanagementconsultant.com/Service/Environmental_and_crz_Clearance",
     subservices: [
-      {
-        title: "Forest Clearance / Forest Land Diversion",
-        image: asset("Land-Contour-grass.webp"),
-        description:
-          "PARIVESH applications, impact information, stakeholder coordination and compliance monitoring are managed through the forest diversion and MoEFCC process.",
-        projects: [],
-        features: [],
-      },
-      {
-        title: "Wildlife Clearances",
-        image: asset("Wildlife-Clearances.webp"),
-        description:
-          "Clearance support for national parks, wildlife sanctuaries, reserves and eco-sensitive zones includes applications, studies, inspections, consultations and ongoing compliance.",
-        projects: [],
-        features: [],
-      },
-      {
-        title: "Environmental Clearances",
-        image: asset("Forest-Clearances.webp"),
-        description:
-          "EIA-aligned applications, environmental reports, authority engagement, consultations, hearings and post-approval reporting are coordinated with the relevant appraisal committee.",
-        projects: [],
-        features: [],
-      },
-      {
-        title: "Coastal Regulation Zone (CRZ) Clearances",
-        image: asset("Coastal-Zone-Newer.webp"),
-        description:
-          "Documentation and authority coordination support projects through applicable Coastal Regulation Zone requirements and approval stages.",
-        projects: [],
-        features: [],
-      },
-      {
-        title: "Height Clearance from Airport Authority of India (AAI)",
-        image: asset("Height-Clearance.webp"),
-        description:
-          "Licensed survey certification, CCZM review, permissible elevation checks and NOCAS filing are coordinated until the final AAI height NOC is issued.",
-        projects: [],
-        features: [],
-      },
+      scope("Forest Land Identification & Assessment", "Identification and mapping of affected forest areas using available forest records, cadastral maps, satellite imagery, GIS datasets and field surveys."),
+      scope("DGPS Survey & Geo-Referenced Mapping", "DGPS surveys and geo-referenced forest-land plans, alignment maps, boundary maps and spatial datasets for authority submissions."),
+      scope("Forest Diversion Proposal Documentation", "Technical assistance for prescribed forms, supporting maps, survey records and portal submissions, including PARIVESH."),
+      scope("Compensatory Afforestation Land Mapping", "GIS-based mapping and documentation of proposed compensatory-afforestation land, area calculations and boundary plans."),
+      scope("Tree Enumeration & Site Inspection Support", "Coordination for tree enumeration, site inspections, field verification and required survey-based information."),
+      scope("Regulatory Coordination & Compliance Support", "Document submissions, compliance responses, technical clarifications and coordination during proposal processing."),
+      scope("Forest Land Records & GIS Database", "Integrated forest maps, cadastral information, alignments, affected-area calculations and GIS datasets for monitoring and reporting."),
     ],
   },
   {
-    slug: "architecture",
+    slug: "environment-eia-studies",
     group: "Capabilities",
-    title: "Architecture",
-    icon: Building2,
-    tagline: "Architectural brilliance, redefining possibilities.",
-    summary:
-      "Building approvals, NOCs, design development, cost planning, interior design and project management form an integrated architectural service.",
-    image: asset("Building-Plan.webp"),
-    sourceUrl:
-      "https://ranemanagementconsultant.com/Service/Building_plan_approval",
+    title: "Environment & EIA Studies",
+    icon: Waves,
+    tagline: "Supporting sustainable infrastructure through environmental assessment, GIS mapping and regulatory compliance.",
+    summary: "RMCPL combines engineering surveys, GIS mapping, spatial analysis and environmental documentation to identify sensitive areas, assess potential impacts and support EIA reports, Environmental Management Plans and the environmental approval process.",
+    image: asset("Forest-Clearances.webp"),
     subservices: [
-      {
-        title: "Building Plan Approval",
-        image: asset("Building-Plan.webp"),
-        description:
-          "New-build and redevelopment plans are prepared for local approval with careful attention to permitted use, space planning, FSI, functionality and regulatory compliance.",
-        projects: [],
-        features: [],
-      },
-      {
-        title: "No Objection Certificates (NOCs)",
-        image: asset("NOC-02.webp"),
-        description:
-          "Applications and liaison cover the internal and external authorities whose NOCs may be required for building approval, including aviation, coastal, heritage, rail, port and environmental bodies.",
-        projects: [],
-        features: [],
-      },
-      {
-        title: "Design Development",
-        image: asset("Design-Development.webp"),
-        description:
-          "Building plans and elevations balance aesthetics, usable space, stakeholder needs, functionality and sustainability.",
-        projects: [],
-        features: [],
-      },
-      {
-        title: "Cost Estimation & Budgeting",
-        image: asset("Cost-Estimation-Budgeting.webp"),
-        description:
-          "Market research, detailed estimates and project budgeting establish realistic financial expectations and support informed decisions through delivery.",
-        projects: [],
-        features: [],
-      },
-      {
-        title: "Interior Design",
-        image: asset("Interior-Design.webp"),
-        description:
-          "Interior assignments progress from brief and concept through material selection, execution planning, quality reviews and final handover.",
-        projects: [],
-        features: [],
-      },
-      {
-        title: "Building Project Management",
-        image: asset("Building-Project-Management.webp"),
-        description:
-          "Tendering, contracts, consultant and agency appointments, bill verification, quality control and BIM coordination support efficient construction delivery.",
-        projects: [],
-        features: [],
-      },
+      scope("Environmental Baseline Data & Site Assessment", "Baseline information on existing conditions, land use, sensitive receptors and environmental parameters, coordinated with competent specialists where required."),
+      scope("Environmental Impact Assessment (EIA) Support", "Technical and spatial inputs including project-footprint mapping, potential impact areas, constraints and supporting data."),
+      scope("Environmental Management Plan (EMP)", "Documentation of mitigation measures, monitoring requirements and management recommendations for construction and operation."),
+      scope("GIS-Based Environmental Mapping", "Spatial analysis of land use, water bodies, drainage, forest areas, mangroves and other environmentally relevant features."),
+      scope("Air & Noise Pollution Assessment Support", "Coordination and documentation of ambient-air and noise monitoring locations, spatial results and findings."),
+      scope("Coastal Regulation Zone (CRZ) Mapping Support", "GIS mapping of project boundaries in relation to applicable CRZ maps and coastal features."),
+      scope("Environmental Compliance & Approval Coordination", "Technical submissions, responses to observations, supplementary information and authority follow-up."),
     ],
   },
   {
-    slug: "land-building-valuation",
+    slug: "wildlife-clearance-consultancy",
     group: "Capabilities",
-    title: "Land & Building Valuation",
-    icon: Factory,
-    tagline: "Valuing real estate with expertise and integrity.",
-    summary:
-      "Property valuation and technical-financial assessment for lenders, individuals and corporate organisations across transactions, financing, compliance and disputes.",
-    image: asset("Banking-copy.webp"),
-    sourceUrl:
-      "https://ranemanagementconsultant.com/Service/Land_report_advisory",
+    title: "Wildlife Clearance Consultancy",
+    icon: ShieldCheck,
+    tagline: "Wildlife assessment, GIS mapping and regulatory coordination for responsible infrastructure development.",
+    summary: "RMCPL supports projects near protected areas, wildlife corridors, tiger reserves and eco-sensitive zones through GIS mapping, alignment assessment, technical documentation, site-inspection coordination and clearance-proposal processing.",
+    image: asset("Wildlife-Clearances.webp"),
     subservices: [
-      {
-        title: "Banking & Financial Institutes",
-        image: asset("Banking-copy.webp"),
-        description:
-          "Pre- and post-valuation, technical and financial assessment, collateral valuation and periodic asset review support lending and investment decisions.",
-        projects: [],
-        features: [],
-      },
-      {
-        title: "Individuals",
-        image: asset("Individual-copy.webp"),
-        description:
-          "Valuation advice supports tax and legal matters, visas, asset sale and purchase, insurance, education loans, mortgages and secondary real-estate investments.",
-        projects: [],
-        features: [],
-      },
-      {
-        title: "Corporates",
-        image: asset("Corporates-copy.webp"),
-        description:
-          "Corporate work includes M&A, bank finance and solvency, insurance, arbitration and litigation, public issues, insolvency advice and loan-against-property valuations.",
-        projects: [],
-        features: [],
-      },
+      scope("Wildlife-Sensitive Area Identification & Mapping", "Mapping projects in relation to national parks, sanctuaries, protected areas, wildlife corridors, tiger reserves and notified eco-sensitive zones."),
+      scope("GIS-Based Project Impact Assessment", "Spatial analysis of alignments and footprints to identify potential overlap with protected and ecologically sensitive areas."),
+      scope("Wildlife Clearance Proposal Documentation", "Compilation of applications, maps, project details and supporting documentation under applicable requirements."),
+      scope("DGPS Survey & Geo-Referenced Mapping", "Geo-referenced plans, boundary details and DGPS outputs for submission and field verification."),
+      scope("Site Inspection & Authority Coordination", "Coordination for inspections, field verification, consultations and supplementary submissions."),
+      scope("Environmental & Wildlife Study Coordination", "Coordination with qualified specialists for studies, habitat assessment, impact evaluation and mitigation planning."),
+      scope("Compliance & Follow-Up Support", "Responses to observations, supplementary documentation and monitoring of applicable clearance conditions."),
+    ],
+  },
+  {
+    slug: "social-impact-assessment",
+    group: "Capabilities",
+    title: "Social Impact Assessment (SIA)",
+    icon: Users,
+    tagline: "Understanding community impacts. Supporting fair land acquisition. Enabling responsible development.",
+    summary: "RMCPL combines field surveys, socio-economic data, cadastral mapping, revenue records and GIS analysis to identify affected families and assess impacts on land, assets, livelihoods and community resources for informed acquisition and project planning.",
+    image: asset("Individual-copy.webp"),
+    subservices: [
+      scope("Socio-Economic Baseline Surveys", "Household- and community-level information documents socio-economic conditions, livelihoods, resources and potentially affected populations."),
+      scope("Identification of Project-Affected Families", "Field surveys, cadastral records and GIS identify affected families, parcels, properties, structures and assets."),
+      scope("Land & Asset Impact Assessment", "Assessment of impacts on agricultural land, residences, businesses, community assets and other resources."),
+      scope("Livelihood & Vulnerable Group Assessment", "Documentation of livelihood and community-resource impacts with attention to vulnerable households and groups."),
+      scope("GIS-Based Social Impact Mapping", "Socio-economic information is integrated with alignments, cadastral maps and land records to map affected locations."),
+      scope("Rehabilitation & Resettlement (R&R) Support", "Affected-family inventories, asset documentation and impact summaries support entitlement and mitigation planning."),
+      scope("Stakeholder Consultation & Statutory Documentation", "Support for consultations, public-hearing records, concerns, reports and statutory submissions."),
+    ],
+  },
+  {
+    slug: "aai-height-clearance",
+    group: "Capabilities",
+    title: "Height Clearance from Airport Authority of India (AAI)",
+    icon: Plane,
+    tagline: "Precision surveying. Licensed certification. Reliable height-clearance support.",
+    summary: "With an in-house licensed surveyor, RMCPL supports AAI height-clearance applications through site surveys, coordinate and elevation measurement, CCZM review, permissible-elevation assessment, structure-height verification and NOCAS documentation.",
+    image: asset("Height-Clearance.webp"),
+    subservices: [
+      scope("Licensed Survey & Site Certification", "Site surveys, coordinate measurements, ground-elevation determination and certification through an in-house licensed surveyor."),
+      scope("CCZM Review & Height Restriction Assessment", "Review of Colour Coded Zoning Maps and airport height restrictions to assess permissible elevations."),
+      scope("Building & Structure Height Assessment", "Assessment of proposed building heights, rooftop installations and other relevant structures against aviation restrictions."),
+      scope("NOCAS Application & Documentation", "Application support through the NOCAS portal, including survey certificates, coordinates, drawings and supporting documents."),
+      scope("Technical Documentation & Compliance", "Supplementary technical information and responses to observations raised during processing."),
+      scope("Application Follow-Up & Coordination", "Authority coordination, technical clarifications and additional submissions throughout the application process."),
+      scope("Height NOC Processing Support", "End-to-end support from initial survey and height assessment until the competent authority issues its final decision."),
     ],
   },
 ];
@@ -597,13 +277,10 @@ export const SERVICE_GROUPS = ["Expertise", "Capabilities"].map((name) => ({
   services: SERVICE_CATALOG.filter((service) => service.group === name),
 }));
 
-export const getServiceBySlug = (slug) =>
-  SERVICE_CATALOG.find((service) => service.slug === slug);
+export const getServiceBySlug = (slug) => SERVICE_CATALOG.find((service) => service.slug === slug);
 
 export const PROJECT_SERVICE_GROUPS = SERVICE_CATALOG.map((service) => ({
   serviceSlug: service.slug,
   serviceTitle: service.title,
-  sourceUrl: service.sourceUrl,
   entries: service.subservices.filter((subservice) => subservice.projects.length > 0),
 })).filter((group) => group.entries.length > 0);
-

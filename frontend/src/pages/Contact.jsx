@@ -64,7 +64,7 @@ export default function Contact() {
       <PageHero
         chapter="Contact · Public Enquiry"
         title="Get in touch with us."
-        subtitle="Contact Rane Management Consultant for land surveying, acquisition, land records, planning, approvals, architecture and valuation services."
+        subtitle="Contact Rane Management Consultant for surveying, land acquisition, land records, planning, geospatial systems, feasibility studies and statutory clearances."
         image="https://ranemanagementconsultant.com/uploads/Home-page/homepage-banner-(1)1.webp"
       />
 

@@ -83,7 +83,7 @@ function App() {
           <Route path="/services" element={<Shell><Services /></Shell>} />
           <Route path="/services/:serviceSlug" element={<Shell><ServiceDetail /></Shell>} />
           <Route path="/gis-technology" element={<Navigate to="/services/geospatial-it-solutions" replace />} />
-          <Route path="/land-acquisition" element={<Navigate to="/services/land-acquisition" replace />} />
+          <Route path="/land-acquisition" element={<Navigate to="/services/land-acquisition-consultancy" replace />} />
           <Route path="/projects" element={<Shell><Projects /></Shell>} />
           <Route path="/careers" element={<Shell><Careers /></Shell>} />
           <Route path="/contact" element={<Shell><Contact /></Shell>} />

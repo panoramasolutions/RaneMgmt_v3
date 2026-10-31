@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
   ArrowUpRight,
+  ChevronLeft,
+  ChevronRight,
   Check,
   History,
+  Pause,
+  Play,
   Radio,
 } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
@@ -17,20 +21,88 @@ import {
   TRUST_CLIENTS,
 } from "@/lib/data";
 import { SERVICE_GROUPS } from "@/lib/serviceCatalog";
-import { HOME_ACTIVE_PROJECTS, HOME_PAST_PROJECTS } from "@/lib/keyProjects";
+import { HOME_ACTIVE_PROJECTS, HOME_PAST_PROJECTS, KEY_PROJECTS } from "@/lib/keyProjects";
 
 const WHY_RANE = [
   { title: "Experience", text: "Established in 1995 with decades of land, survey and government consulting work." },
   { title: "Expert team", text: "Licensed surveyors, engineers, GIS specialists and land-revenue professionals." },
   { title: "Modern technology", text: "DGPS, ETS, drones, GIS tools and application development support field delivery." },
-  { title: "Comprehensive services", text: "Survey, records, acquisition, planning, clearances, architecture and valuation." },
+  { title: "Comprehensive services", text: "Survey, records, acquisition, planning, geospatial systems and statutory studies." },
   { title: "Versatility", text: "Services adapt to government, semi-government and private-sector requirements." },
   { title: "Reliability", text: "Accurate information supports planning, approvals and confident project decisions." },
 ];
 
+const projectImage = (slug) => KEY_PROJECTS.find((project) => project.slug === slug)?.image;
+
+const SECTOR_STORIES = [
+  {
+    title: "Highways & Road Infrastructure",
+    text: "Survey and land support for expressways, corridors and major road networks.",
+    images: [
+      projectImage("mumbai-pune-expressway-missing-link"),
+      projectImage("samruddhi-mahamarg-package-5"),
+    ],
+  },
+  {
+    title: "Rail & Transit Networks",
+    text: "Geospatial and land-acquisition expertise for rail and transit corridors.",
+    images: [
+      projectImage("central-railway-mobile-lidar-survey"),
+      projectImage("dfccil-western-dedicated-freight-corridor"),
+    ],
+  },
+  {
+    title: "Water & Utility Infrastructure",
+    text: "Engineering surveys for water-supply and essential utility networks.",
+    images: [
+      projectImage("mumbai-water-supply-infrastructure-survey"),
+      projectImage("uttan-drone-survey-contour-mapping"),
+    ],
+  },
+  {
+    title: "Urban Planning & City Surveys",
+    text: "Spatial records for municipal planning, property mapping and governance.",
+    images: [
+      projectImage("thane-city-survey-property-mapping"),
+      projectImage("khalapur-existing-land-use-plan"),
+    ],
+  },
+  {
+    title: "Land Acquisition & Records",
+    text: "Land, revenue-record and acquisition support for infrastructure delivery.",
+    images: [
+      projectImage("samruddhi-mahamarg-package-5"),
+      projectImage("mumbai-pune-expressway-missing-link"),
+    ],
+  },
+  {
+    title: "GIS & Digital Mapping",
+    text: "Digital mapping and GIS applications that turn field data into planning intelligence.",
+    images: [
+      projectImage("uttan-drone-survey-contour-mapping"),
+      projectImage("thane-city-survey-property-mapping"),
+    ],
+  },
+];
+
 export default function Home() {
-  const [portfolioView, setPortfolioView] = useState("active");
-  const displayedProjects = portfolioView === "active" ? HOME_ACTIVE_PROJECTS : HOME_PAST_PROJECTS;
+  const [sectorPage, setSectorPage] = useState(0);
+  const [sectorPaused, setSectorPaused] = useState(false);
+  const [sectorInteracting, setSectorInteracting] = useState(false);
+
+  useEffect(() => {
+    if (sectorPaused || sectorInteracting || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return undefined;
+
+    const timer = window.setInterval(() => {
+      setSectorPage((current) => (current + 1) % SECTOR_STORIES.length);
+    }, 5500);
+
+    return () => window.clearInterval(timer);
+  }, [sectorPaused, sectorInteracting]);
+
+  const changeSectorPage = (direction) => {
+    setSectorPage((current) => (current + direction + SECTOR_STORIES.length) % SECTOR_STORIES.length);
+  };
 
   return (
     <div data-testid="home-page" className="bg-white">
@@ -98,6 +170,91 @@ export default function Home() {
                 <div className="mt-3 text-xs uppercase tracking-[0.12em] text-[#637083] font-heading font-semibold">{stat.label}</div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section data-testid="sectors-we-serve" className="border-b border-[#DDE3EB] bg-white">
+        <div className="container-wide py-16 md:py-20 lg:py-24">
+          <div className="grid items-end gap-8 lg:grid-cols-12 reveal">
+            <div className="lg:col-span-7">
+              <SectionHeading
+                overline="RMCPL sector portfolio"
+                title="Sectors We Serve"
+                subtitle="A view of the infrastructure and development segments supported by RMCPL's surveying, land, GIS and consultancy expertise."
+              />
+            </div>
+            <div className="hidden lg:col-span-4 lg:col-start-9 lg:block lg:text-right">
+              <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#637083]">
+                One sector story at a time
+              </span>
+            </div>
+          </div>
+
+          <div
+            className="mt-10"
+            role="region"
+            aria-roledescription="carousel"
+            aria-label="RMCPL sectors"
+            onMouseEnter={() => setSectorInteracting(true)}
+            onMouseLeave={() => setSectorInteracting(false)}
+            onFocusCapture={() => setSectorInteracting(true)}
+            onBlurCapture={(event) => {
+              if (!event.currentTarget.contains(event.relatedTarget)) setSectorInteracting(false);
+            }}
+          >
+            <article key={sectorPage} className="sector-slide-enter overflow-hidden border border-[#DDE3EB] bg-white shadow-[0_22px_52px_-42px_rgba(23,41,79,0.75)]">
+              <div className="grid gap-px bg-[#DDE3EB] md:grid-cols-2">
+                {SECTOR_STORIES[sectorPage].images.map((image, index) => (
+                  <div key={`${SECTOR_STORIES[sectorPage].title}-${index}`} className="image-frame group relative aspect-[16/10] overflow-hidden bg-[#EEF2F7] md:aspect-[16/9]">
+                    <img
+                      src={image}
+                      alt={`${SECTOR_STORIES[sectorPage].title} project view ${index + 1}`}
+                      loading="lazy"
+                      className="transition-transform duration-700 group-hover:scale-[1.025]"
+                    />
+                  </div>
+                ))}
+              </div>
+              <div className="border-t-2 border-[#E07000] px-5 py-6 md:px-8 md:py-7">
+                <div>
+                  <h3 className="font-heading text-xl font-semibold text-[#243D71] md:text-2xl">
+                    {SECTOR_STORIES[sectorPage].title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-[#637083] md:text-base">
+                    {SECTOR_STORIES[sectorPage].text}
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <div className="mt-7 flex flex-col gap-5 border-t border-[#DDE3EB] pt-5 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex items-center gap-2" aria-label={`Sector slide ${sectorPage + 1} of ${SECTOR_STORIES.length}`}>
+                {SECTOR_STORIES.map((sector, index) => (
+                  <button
+                    key={sector.title}
+                    type="button"
+                    onClick={() => setSectorPage(index)}
+                    aria-label={`Show sector slide ${index + 1}`}
+                    aria-current={sectorPage === index ? "true" : undefined}
+                    className={`h-1.5 rounded-full transition-all duration-300 ${sectorPage === index ? "w-9 bg-[#E07000]" : "w-5 bg-[#CDD8E7] hover:bg-[#8FA2BC]"}`}
+                  />
+                ))}
+              </div>
+
+              <div className="flex items-center gap-2">
+                <button type="button" onClick={() => changeSectorPage(-1)} className="grid h-10 w-10 place-items-center border border-[#DDE3EB] bg-white text-[#243D71] transition-colors hover:border-[#9FB0C7] hover:text-[#034EA1]" aria-label="Previous sector slide">
+                  <ChevronLeft size={18} aria-hidden="true" />
+                </button>
+                <button type="button" onClick={() => setSectorPaused((current) => !current)} className="inline-flex h-10 items-center gap-2 border border-[#DDE3EB] bg-white px-4 font-heading text-xs font-semibold text-[#243D71] transition-colors hover:border-[#9FB0C7] hover:text-[#034EA1]" aria-label={sectorPaused ? "Resume automatic sector slides" : "Pause automatic sector slides"}>
+                  {sectorPaused ? <Play size={15} aria-hidden="true" /> : <Pause size={15} aria-hidden="true" />}
+                  {sectorPaused ? "Play" : "Pause"}
+                </button>
+                <button type="button" onClick={() => changeSectorPage(1)} className="grid h-10 w-10 place-items-center border border-[#DDE3EB] bg-white text-[#243D71] transition-colors hover:border-[#9FB0C7] hover:text-[#034EA1]" aria-label="Next sector slide">
+                  <ChevronRight size={18} aria-hidden="true" />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -205,81 +362,28 @@ export default function Home() {
               title="Project Portfolio"
               subtitle="Explore RMCPL's active commissions and completed assignments across water, transport, land acquisition, municipal infrastructure and geospatial engineering."
             />
-            <Link to={`/projects?portfolio=${portfolioView}`} data-testid="projects-view-all" className="btn-primary shrink-0">
+            <Link to="/projects" data-testid="projects-view-all" className="btn-primary shrink-0">
               View detailed projects <ArrowUpRight size={17} />
             </Link>
           </div>
 
-          <div className="mt-10 reveal">
-            <div className="mb-3 flex items-center justify-between gap-5">
-              <div className="flex items-center gap-3">
-                <span className="font-heading text-[10px] font-bold uppercase tracking-[0.17em] text-[#637083]">Browse by project status</span>
-                <span className="h-px w-16 bg-[#DDE3EB]" aria-hidden="true" />
-              </div>
-              <div className="hidden items-center gap-2 font-heading text-xs font-semibold text-[#243D71] sm:flex" aria-live="polite">
-                <span className={`h-2 w-2 rounded-full ${portfolioView === "active" ? "bg-[#E07000] animate-pulse" : "bg-[#637083]"}`} aria-hidden="true" />
-                {portfolioView === "active" ? "Viewing active assignments" : "Viewing completed assignments"}
-              </div>
-            </div>
-            <div className="relative grid w-full grid-cols-2 gap-1.5 overflow-hidden rounded-2xl border border-[#D5DEE9] bg-[#F1F4F8] p-1.5 shadow-[0_22px_50px_-38px_rgba(23,41,79,0.75)]" role="tablist" aria-label="Project portfolio type">
-              <span
-                className="pointer-events-none absolute bottom-1.5 left-1.5 top-1.5 w-[calc(50%-0.5625rem)] overflow-hidden rounded-xl bg-[#243D71] shadow-[0_18px_36px_-22px_rgba(23,41,79,0.95)] transition-transform duration-500 ease-out"
-                style={{ transform: portfolioView === "active" ? "translateX(0)" : "translateX(calc(100% + 0.375rem))" }}
-                aria-hidden="true"
-              >
-                <span className="absolute -right-10 -top-14 h-32 w-32 rounded-full bg-white/[0.06]" />
-                <span className="absolute inset-x-6 bottom-0 h-0.5 bg-[#E07000]" />
-              </span>
-              <PortfolioTab
-                active={portfolioView === "active"}
-                icon={Radio}
-                label="Active Projects"
-                description="Assignments currently in focus"
-                onClick={() => setPortfolioView("active")}
-                controls="home-project-panel"
-              />
-              <PortfolioTab
-                active={portfolioView === "past"}
-                icon={History}
-                label="Past Projects"
-                description="Completed project record"
-                onClick={() => setPortfolioView("past")}
-                controls="home-project-panel"
-              />
-            </div>
-          </div>
-
-          <div id="home-project-panel" role="tabpanel" className="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-7 reveal reveal-stagger">
-            {displayedProjects.map((project, index) => (
-              <article key={`${portfolioView}-${project.slug}`} className="group border border-[#DDE3EB] bg-white motion-card overflow-hidden flex">
-                <Link to={`/projects?portfolio=${portfolioView}#${project.slug}`} className="flex w-full flex-col" aria-label={`View details for ${project.title}`}>
-                  <div className="image-frame aspect-[16/10] relative">
-                    <img src={project.image} alt={project.title} loading="lazy" />
-                    <div className="absolute left-0 top-0 px-4 py-2.5 bg-white/95 backdrop-blur-sm flex items-center gap-2">
-                      <span className={`h-2 w-2 rounded-full ${portfolioView === "active" ? "bg-[#E07000] animate-pulse" : "bg-[#637083]"}`} aria-hidden="true" />
-                      <span className="text-[9px] font-heading font-bold uppercase tracking-[0.14em] text-[#243D71]">
-                        {portfolioView === "active" ? "Active project" : "Past project"}
-                      </span>
-                    </div>
-                    <div className="absolute left-4 bottom-4 bg-[#17294F] px-3 py-2 font-mono text-[10px] uppercase tracking-[0.14em] text-white shadow-sm">
-                      {project.metric}
-                    </div>
-                  </div>
-                  <div className="p-6 md:p-7 flex flex-1 flex-col">
-                    <div className="flex items-center justify-between gap-4">
-                      <span className="font-heading text-[10px] font-bold uppercase tracking-[0.15em] text-[#E07000]">Project portfolio</span>
-                      <span className="font-mono text-[10px] text-[#637083]">{String(index + 1).padStart(2, "0")}</span>
-                    </div>
-                    <h3 className="mt-4 font-heading text-[1.35rem] md:text-2xl leading-[1.25] font-semibold text-[#243D71] group-hover:text-[#034EA1] transition-colors">{project.title}</h3>
-                    <div className="mt-4 pt-4 border-t border-[#DDE3EB]">
-                      <div className="text-[9px] font-heading font-bold uppercase tracking-[0.14em] text-[#637083]">{project.category}</div>
-                      <p className="mt-2 text-sm leading-relaxed text-[#637083] line-clamp-2">{project.summary}</p>
-                    </div>
-                    <span className="editorial-link mt-6 pt-1">View project details <ArrowRight size={15} /></span>
-                  </div>
-                </Link>
-              </article>
-            ))}
+          <div className="mt-12 space-y-16 lg:space-y-20">
+            <ProjectPortfolioGroup
+              type="active"
+              icon={Radio}
+              title="Active Projects"
+              eyebrow="Currently underway"
+              description="Assignments currently in focus across RMCPL's survey, land, infrastructure and geospatial portfolio."
+              projects={HOME_ACTIVE_PROJECTS}
+            />
+            <ProjectPortfolioGroup
+              type="past"
+              icon={History}
+              title="Past Projects"
+              eyebrow="Completed assignments"
+              description="A selected record of completed commissions and delivered project work."
+              projects={HOME_PAST_PROJECTS}
+            />
           </div>
         </div>
       </section>
@@ -339,7 +443,7 @@ export default function Home() {
             <div className="lg:col-span-8">
               <div className="text-xs font-heading font-bold uppercase tracking-[0.16em] text-[#F2A14A]">Project enquiry</div>
               <h2 className="font-heading !text-white mt-6 leading-tight" style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 600 }}>How can we help you?</h2>
-              <p className="mt-5 text-white/70 max-w-2xl">Discuss your survey, land, planning, clearance, architecture or valuation requirement with the Rane team.</p>
+              <p className="mt-5 text-white/70 max-w-2xl">Discuss your survey, land, planning, geospatial, feasibility or clearance requirement with the Rane team.</p>
               <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/75"><a href={`tel:${CONTACT.phones[0].replace(/\s/g, "")}`} className="hover:text-white">{CONTACT.phones[0]}</a><a href={`mailto:${CONTACT.emails[0]}`} className="hover:text-white">{CONTACT.emails[0]}</a></div>
             </div>
             <div className="lg:col-span-4 lg:text-right"><Link to="/contact" data-testid="final-cta-primary" className="btn-outline-light">Submit an enquiry <ArrowUpRight size={17} /></Link></div>
@@ -350,36 +454,72 @@ export default function Home() {
   );
 }
 
-function PortfolioTab({ active, icon: Icon, label, description, onClick, controls }) {
+function ProjectPortfolioGroup({ type, icon: Icon, title, eyebrow, description, projects }) {
+  const isActive = type === "active";
+
   return (
-    <button
-      type="button"
-      role="tab"
-      aria-selected={active}
-      aria-controls={controls}
-      onClick={onClick}
-      className={`group relative z-10 flex min-w-0 items-center gap-3 overflow-hidden rounded-xl px-3 py-4 text-left transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#034EA1] focus-visible:ring-offset-2 sm:gap-4 sm:px-6 sm:py-5 ${
-        active
-          ? "bg-transparent"
-          : "bg-transparent hover:bg-white/75"
-      }`}
-    >
-      <span className={`grid h-10 w-10 shrink-0 place-items-center rounded-lg border transition-colors duration-300 sm:h-12 sm:w-12 ${
-        active
-          ? "border-white/15 bg-white/10 text-[#F2A14A]"
-          : "border-[#DDE3EB] bg-white text-[#637083] group-hover:border-[#BFCBDD] group-hover:text-[#034EA1]"
+    <section data-testid={`${type}-project-group`} aria-labelledby={`${type}-projects-title`} className="reveal">
+      <div className={`relative overflow-hidden border-y border-[#DDE3EB] px-5 py-5 md:px-6 md:py-6 ${
+        isActive
+          ? "bg-[linear-gradient(90deg,#FFF7ED_0%,#FBFCFE_46%,#FFFFFF_100%)]"
+          : "bg-[linear-gradient(90deg,#F1F4F8_0%,#FBFCFE_46%,#FFFFFF_100%)]"
       }`}>
-        <Icon size={19} strokeWidth={1.9} aria-hidden="true" />
-      </span>
-      <span className="min-w-0">
-        <span className={`block truncate font-heading text-sm font-semibold transition-colors duration-300 sm:text-base md:text-lg ${active ? "text-white" : "text-[#243D71]"}`}>{label}</span>
-        <span className={`mt-1 hidden truncate text-xs transition-colors duration-300 sm:block ${active ? "text-white/65" : "text-[#637083]"}`}>{description}</span>
-      </span>
-      <span className={`ml-auto hidden h-9 w-9 shrink-0 place-items-center rounded-full transition-all duration-300 md:grid ${
-        active ? "bg-white/10 text-white" : "bg-white text-[#637083] group-hover:text-[#034EA1]"
-      }`}>
-        <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden="true" />
-      </span>
-    </button>
+        <span className={`absolute inset-y-0 left-0 w-1 ${isActive ? "bg-[#E07000]" : "bg-[#243D71]"}`} aria-hidden="true" />
+        <div className="flex flex-col gap-5 md:flex-row md:items-center">
+          <span className={`grid h-12 w-12 shrink-0 place-items-center rounded-lg border ${
+            isActive
+              ? "border-[#F4D2AE] bg-white text-[#E07000]"
+              : "border-[#CDD8E7] bg-white text-[#243D71]"
+          }`}>
+            <Icon size={20} strokeWidth={1.9} aria-hidden="true" />
+          </span>
+
+          <div className="min-w-0 flex-1">
+            <div className={`flex items-center gap-2 font-heading text-[10px] font-bold uppercase tracking-[0.16em] ${isActive ? "text-[#E07000]" : "text-[#637083]"}`}>
+              <span className={`h-2 w-2 rounded-full ${isActive ? "bg-[#E07000] animate-pulse" : "bg-[#637083]"}`} aria-hidden="true" />
+              {eyebrow}
+            </div>
+            <h3 id={`${type}-projects-title`} className="mt-1.5 font-heading text-xl font-semibold text-[#243D71] md:text-2xl">{title}</h3>
+            <p className="mt-1.5 max-w-3xl text-sm leading-relaxed text-[#637083]">{description}</p>
+          </div>
+
+          <Link to={`/projects?portfolio=${type}`} className="editorial-link shrink-0 self-start md:self-center">
+            View all {type} projects <ArrowRight size={15} />
+          </Link>
+        </div>
+      </div>
+
+      <div className="mt-7 grid gap-7 md:grid-cols-2 lg:grid-cols-3 reveal reveal-stagger">
+        {projects.map((project) => (
+          <article key={`${type}-${project.slug}`} className="group flex overflow-hidden border border-[#DDE3EB] bg-white motion-card">
+            <Link to={`/projects?portfolio=${type}&focus=${project.slug}`} className="flex w-full flex-col" aria-label={`View details for ${project.title}`}>
+              <div className="image-frame relative aspect-[16/10]">
+                <img src={project.image} alt={project.title} loading="lazy" />
+                <div className="absolute left-0 top-0 flex items-center gap-2 bg-white/95 px-4 py-2.5 backdrop-blur-sm">
+                  <span className={`h-2 w-2 rounded-full ${isActive ? "bg-[#E07000] animate-pulse" : "bg-[#637083]"}`} aria-hidden="true" />
+                  <span className="font-heading text-[9px] font-bold uppercase tracking-[0.14em] text-[#243D71]">
+                    {isActive ? "Active project" : "Past project"}
+                  </span>
+                </div>
+              </div>
+              <div className="flex flex-1 flex-col p-6 md:p-7">
+                <h4 className="font-heading text-[1.35rem] font-semibold leading-[1.25] text-[#243D71] transition-colors group-hover:text-[#034EA1] md:text-2xl">{project.title}</h4>
+                <div className="mt-5 grid flex-1 gap-5 border-t border-[#DDE3EB] pt-5 sm:grid-cols-[minmax(0,1fr)_auto]">
+                  <div className="min-w-0">
+                    <div className="font-heading text-[9px] font-bold uppercase tracking-[0.14em] text-[#637083]">Client</div>
+                    <p className="mt-2 text-sm font-medium leading-relaxed text-[#243D71]">{project.client}</p>
+                  </div>
+                  <div className="sm:min-w-24 sm:border-l sm:border-[#DDE3EB] sm:pl-5">
+                    <div className="font-heading text-[9px] font-bold uppercase tracking-[0.14em] text-[#637083]">Project scale</div>
+                    <p className="mt-2 font-heading text-base font-semibold text-[#034EA1]">{project.metric}</p>
+                  </div>
+                </div>
+                <span className="editorial-link mt-6 border-t border-[#DDE3EB] pt-5">View project details <ArrowRight size={15} /></span>
+              </div>
+            </Link>
+          </article>
+        ))}
+      </div>
+    </section>
   );
 }

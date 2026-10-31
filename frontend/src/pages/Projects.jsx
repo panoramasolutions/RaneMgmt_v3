@@ -1,140 +1,94 @@
+import { useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { ArrowRight, ArrowUpRight, Check, History, Radio } from "lucide-react";
+import { ArrowUpRight, History, Radio } from "lucide-react";
 import PageHero from "@/components/PageHero";
-import SectionHeading from "@/components/SectionHeading";
 import { ACTIVE_PROJECTS, PAST_PROJECTS } from "@/lib/keyProjects";
 
 export default function Projects() {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const portfolioView = searchParams.get("portfolio") === "past" ? "past" : "active";
-  const visibleProjects = portfolioView === "active" ? ACTIVE_PROJECTS : PAST_PROJECTS;
-  const categoryCount = new Set(visibleProjects.map((project) => project.category)).size;
-  const clientCount = new Set(visibleProjects.map((project) => project.client)).size;
+  const [searchParams] = useSearchParams();
+  const requestedPortfolio = searchParams.get("portfolio") === "past" ? "past" : "active";
+  const focusedProject = searchParams.get("focus");
+  const clientCount = new Set(
+    [...ACTIVE_PROJECTS, ...PAST_PROJECTS].map((project) => project.client)
+  ).size;
+  const projectCollections = [
+    {
+      type: "active",
+      icon: Radio,
+      title: "Active Projects",
+      eyebrow: "Currently underway",
+      description: "Current commissions and assignments in focus across RMCPL's project portfolio.",
+      projects: ACTIVE_PROJECTS,
+    },
+    {
+      type: "past",
+      icon: History,
+      title: "Past Projects",
+      eyebrow: "Completed assignments",
+      description: "A record of completed commissions and delivered project work.",
+      projects: PAST_PROJECTS,
+    },
+  ];
 
-  const selectPortfolio = (view) => {
-    setSearchParams({ portfolio: view }, { replace: true });
-  };
+  if (requestedPortfolio === "past") projectCollections.reverse();
+
+  useEffect(() => {
+    if (!focusedProject) return undefined;
+
+    const targetId = `${requestedPortfolio}-${focusedProject}`;
+    let secondFrame;
+    const firstFrame = window.requestAnimationFrame(() => {
+      secondFrame = window.requestAnimationFrame(() => {
+        const target = document.getElementById(targetId);
+        if (!target) return;
+
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+      });
+    });
+
+    return () => {
+      window.cancelAnimationFrame(firstFrame);
+      if (secondFrame) window.cancelAnimationFrame(secondFrame);
+    };
+  }, [focusedProject, requestedPortfolio]);
 
   return (
     <div data-testid="projects-page" className="bg-white">
       <PageHero
         chapter="Projects · Active and past assignments"
         title="Project Portfolio"
-        subtitle="Browse current commissions and completed work across survey, land acquisition, statutory clearance, railway, municipal and GIS assignments."
-        image={visibleProjects[0].image}
+        subtitle="Explore current commissions and completed assignments through concise project records covering the client, project scale and work undertaken."
+        image={ACTIVE_PROJECTS[0].image}
       />
 
-      <section data-testid="project-summary" className="bg-[#F7F8FA] border-b border-[#DDE3EB]">
+      <section data-testid="project-summary" className="border-b border-[#DDE3EB] bg-[#F7F8FA]">
         <div className="container-wide grid sm:grid-cols-3 border-x border-[#DDE3EB]">
-          <SummaryMetric value={String(visibleProjects.length).padStart(2, "0")} label={`${portfolioView} projects`} />
-          <SummaryMetric value={String(categoryCount).padStart(2, "0")} label="Project categories" />
+          <SummaryMetric value={String(ACTIVE_PROJECTS.length).padStart(2, "0")} label="Active projects" />
+          <SummaryMetric value={String(PAST_PROJECTS.length).padStart(2, "0")} label="Past projects" />
           <SummaryMetric value={String(clientCount).padStart(2, "0")} label="Client organisations" />
         </div>
       </section>
 
-      <section className="py-16 md:py-20 lg:py-24 bg-white border-b border-[#DDE3EB]">
-        <div className="container-wide">
-          <div className="mb-14 p-2 bg-[#17294F] grid md:grid-cols-2 gap-2 reveal" role="tablist" aria-label="Project portfolio type">
-            <PortfolioTab
-              active={portfolioView === "active"}
-              icon={Radio}
-              label="Active Projects"
-              description="Current commissions and assignments in focus"
-              onClick={() => selectPortfolio("active")}
-              controls="project-directory-panel"
+      <main className="section-padding border-b border-[#DDE3EB] bg-[#F7F8FA]">
+        <div className="container-wide space-y-20 lg:space-y-28">
+          {projectCollections.map((collection) => (
+            <ProjectCollection
+              key={collection.type}
+              {...collection}
+              focusedProject={collection.type === requestedPortfolio ? focusedProject : null}
             />
-            <PortfolioTab
-              active={portfolioView === "past"}
-              icon={History}
-              label="Past Projects"
-              description="Completed assignments and delivered outcomes"
-              onClick={() => selectPortfolio("past")}
-              controls="project-directory-panel"
-            />
-          </div>
-
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end reveal">
-            <div className="lg:col-span-6">
-              <SectionHeading
-                overline="Complete project record"
-                title="Key Projects"
-                subtitle="Select an assignment to move directly to its overview, scope, outcome and principal highlights."
-              />
-            </div>
-          </div>
-
-          <nav id="project-directory-panel" role="tabpanel" className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 border-t border-l border-[#DDE3EB] reveal reveal-stagger" aria-label={`${portfolioView} project directory`}>
-            {visibleProjects.map((project, index) => (
-              <a key={`${portfolioView}-${project.slug}`} href={`#${project.slug}`} className="group min-h-28 p-5 border-r border-b border-[#DDE3EB] hover:bg-[#F7F8FA] transition-colors">
-                <div className="flex items-center justify-between gap-4">
-                  <span className="flex items-center gap-2 font-mono text-[10px] text-[#E07000]">
-                    <span className={`h-1.5 w-1.5 rounded-full ${portfolioView === "active" ? "bg-[#E07000]" : "bg-[#637083]"}`} />
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <ArrowRight size={14} className="text-[#034EA1] group-hover:translate-x-1 transition-transform" />
-                </div>
-                <span className="block mt-4 font-heading font-semibold leading-snug text-[#243D71] group-hover:text-[#034EA1]">{project.title}</span>
-              </a>
-            ))}
-          </nav>
-        </div>
-      </section>
-
-      <section className="section-padding bg-[#F7F8FA]">
-        <div className="container-wide space-y-12 lg:space-y-16">
-          {visibleProjects.map((project, index) => (
-            <article key={`${portfolioView}-${project.slug}`} id={project.slug} className="scroll-mt-32 min-w-0 overflow-hidden bg-white border border-[#DDE3EB] reveal">
-              <header className="px-6 py-6 md:px-8 lg:px-10 bg-[#243D71] text-white grid md:grid-cols-[70px_1fr_auto] gap-4 md:gap-6 items-center">
-                <div className="font-mono text-sm text-[#F2A14A]">{String(index + 1).padStart(2, "0")}</div>
-                <div>
-                  <div className="flex items-center gap-3 font-mono text-[9px] uppercase tracking-[0.18em] text-white/55">
-                    <span className={`h-1.5 w-1.5 rounded-full ${portfolioView === "active" ? "bg-[#F2A14A] animate-pulse" : "bg-white/50"}`} />
-                    {portfolioView} project · {project.category}
-                  </div>
-                  <h2 className="mt-2 font-heading text-xl md:text-2xl !text-white leading-tight">{project.title}</h2>
-                </div>
-                <div className="md:text-right">
-                  <div className="font-heading text-lg text-white">{project.metric}</div>
-                  <div className="mt-1 font-mono text-[9px] uppercase tracking-[0.14em] text-white/50">Project scale</div>
-                </div>
-              </header>
-
-              <div className="grid min-w-0 lg:grid-cols-12">
-                <div className="min-w-0 lg:col-span-5 border-b lg:border-b-0 lg:border-r border-[#DDE3EB]">
-                  <div className="image-frame aspect-[16/10] min-h-0 sm:min-h-72 lg:aspect-auto lg:h-full">
-                    <img src={project.image} alt={project.title} loading="lazy" />
-                  </div>
-                </div>
-                <div className="min-w-0 lg:col-span-7 p-6 md:p-8 lg:p-10">
-                  <div className="text-[10px] font-heading font-bold uppercase tracking-[0.16em] text-[#034EA1]">Client</div>
-                  <div className="mt-2 font-heading font-semibold text-lg text-[#243D71]">{project.client}</div>
-
-                  <div className="mt-8 text-[10px] font-heading font-bold uppercase tracking-[0.16em] text-[#034EA1]">Project overview</div>
-                  <p className="mt-3 text-[#637083] leading-relaxed">{project.overview}</p>
-
-                  <div className="mt-8 p-5 bg-[#EEF3FA] border-l-2 border-[#E07000]">
-                    <div className="text-[10px] font-heading font-bold uppercase tracking-[0.16em] text-[#243D71]">Project outcome</div>
-                    <p className="mt-3 text-sm text-[#637083] leading-relaxed">{project.outcome}</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="grid lg:grid-cols-2 border-t border-[#DDE3EB]">
-                <ProjectList title="Our scope of work" items={project.scope} />
-                <ProjectList title="Project highlights" items={project.highlights} bordered />
-              </div>
-            </article>
           ))}
         </div>
-      </section>
+      </main>
 
-      <section className="section-padding bg-white border-t border-[#DDE3EB]">
+      <section className="section-padding border-t border-[#DDE3EB] bg-white">
         <div className="container-wide">
-          <div className="bg-[#243D71] px-7 py-12 md:px-12 lg:px-16 lg:py-16 grid lg:grid-cols-12 gap-10 items-center border-l-4 border-[#E07000] reveal">
+          <div className="grid items-center gap-10 border-l-4 border-[#E07000] bg-[#243D71] px-7 py-12 md:px-12 lg:grid-cols-12 lg:px-16 lg:py-16 reveal">
             <div className="lg:col-span-8">
-              <div className="text-xs font-heading font-bold uppercase tracking-[0.16em] text-[#F2A14A]">Project enquiry</div>
-              <h2 className="font-heading !text-white mt-6 leading-tight" style={{ fontSize: "clamp(2rem, 4vw, 3.35rem)", fontWeight: 600 }}>Planning a comparable assignment?</h2>
-              <p className="mt-5 text-white/70 max-w-2xl">Share the location, project stage, required service and expected technical deliverables with the RMCPL team.</p>
+              <div className="font-heading text-xs font-bold uppercase tracking-[0.16em] text-[#F2A14A]">Project enquiry</div>
+              <h2 className="mt-6 font-heading leading-tight !text-white" style={{ fontSize: "clamp(2rem, 4vw, 3.35rem)", fontWeight: 600 }}>Planning a comparable assignment?</h2>
+              <p className="mt-5 max-w-2xl text-white/70">Share the location, project stage, required service and expected technical deliverables with the RMCPL team.</p>
             </div>
             <div className="lg:col-span-4 lg:text-right">
               <Link to="/contact" className="btn-outline-light">Discuss your project <ArrowUpRight size={17} /></Link>
@@ -146,51 +100,108 @@ export default function Projects() {
   );
 }
 
-function PortfolioTab({ active, icon: Icon, label, description, onClick, controls }) {
+function ProjectCollection({ type, icon: Icon, title, eyebrow, description, projects, focusedProject }) {
+  const isActive = type === "active";
+
   return (
-    <button
-      type="button"
-      role="tab"
-      aria-selected={active}
-      aria-controls={controls}
-      onClick={onClick}
-      className={`group min-w-0 flex items-center gap-4 px-5 py-4 md:px-7 md:py-5 text-left transition-all duration-300 ${
-        active ? "bg-white shadow-lg" : "bg-transparent hover:bg-white/10"
+    <section id={`${type}-projects`} data-testid={`${type}-projects-section`} aria-labelledby={`${type}-projects-heading`} className={`scroll-mt-28 reveal ${focusedProject ? "is-visible" : ""}`}>
+      <header className={`relative overflow-hidden border-y border-[#DDE3EB] px-5 py-5 md:px-7 md:py-6 ${
+        isActive
+          ? "bg-[linear-gradient(90deg,#FFF7ED_0%,#FBFCFE_46%,#FFFFFF_100%)]"
+          : "bg-[linear-gradient(90deg,#F1F4F8_0%,#FBFCFE_46%,#FFFFFF_100%)]"
+      }`}>
+        <span className={`absolute inset-y-0 left-0 w-1 ${isActive ? "bg-[#E07000]" : "bg-[#243D71]"}`} aria-hidden="true" />
+        <div className="flex flex-col gap-5 md:flex-row md:items-center">
+          <span className={`grid h-12 w-12 shrink-0 place-items-center rounded-lg border ${
+            isActive
+              ? "border-[#F4D2AE] bg-white text-[#E07000]"
+              : "border-[#CDD8E7] bg-white text-[#243D71]"
+          }`}>
+            <Icon size={20} strokeWidth={1.9} aria-hidden="true" />
+          </span>
+
+          <div className="min-w-0 flex-1">
+            <div className={`flex items-center gap-2 font-heading text-[10px] font-bold uppercase tracking-[0.16em] ${isActive ? "text-[#E07000]" : "text-[#637083]"}`}>
+              <span className={`h-2 w-2 rounded-full ${isActive ? "animate-pulse bg-[#E07000]" : "bg-[#637083]"}`} aria-hidden="true" />
+              {eyebrow}
+            </div>
+            <h2 id={`${type}-projects-heading`} className="mt-1.5 font-heading text-xl font-semibold text-[#243D71] md:text-2xl">{title}</h2>
+            <p className="mt-1.5 max-w-3xl text-sm leading-relaxed text-[#637083]">{description}</p>
+          </div>
+
+          <div className="shrink-0 md:text-right">
+            <div className="font-heading text-2xl font-semibold text-[#243D71]">{String(projects.length).padStart(2, "0")}</div>
+            <div className="mt-1 font-mono text-[9px] uppercase tracking-[0.15em] text-[#637083]">Project records</div>
+          </div>
+        </div>
+      </header>
+
+      <div className="mt-9 space-y-8 lg:mt-10 lg:space-y-10">
+        {projects.map((project, index) => (
+          <ProjectRecord
+            key={`${type}-${project.slug}`}
+            project={project}
+            type={type}
+            imageRight={index % 2 === 1}
+            focused={project.slug === focusedProject}
+          />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function ProjectRecord({ project, type, imageRight, focused }) {
+  return (
+    <article
+      id={`${type}-${project.slug}`}
+      data-focused={focused ? "true" : undefined}
+      aria-current={focused ? "true" : undefined}
+      className={`scroll-mt-28 grid min-w-0 overflow-hidden border bg-white transition-[border-color,box-shadow] duration-500 reveal lg:grid-cols-12 ${focused ? "is-visible" : ""} ${
+        focused
+          ? "border-[#E07000] shadow-[0_28px_65px_-36px_rgba(224,112,0,0.38)] ring-2 ring-[#E07000]/15"
+          : "border-[#DDE3EB] shadow-[0_24px_55px_-46px_rgba(23,41,79,0.7)]"
       }`}
     >
-      <span className={`grid h-11 w-11 shrink-0 place-items-center border ${active ? "border-[#DDE3EB] bg-[#F7F8FA] text-[#E07000]" : "border-white/20 text-white/70"}`}>
-        <Icon size={19} strokeWidth={1.8} aria-hidden="true" />
-      </span>
-      <span className="min-w-0">
-        <span className={`block font-heading text-base md:text-lg font-semibold ${active ? "text-[#243D71]" : "text-white"}`}>{label}</span>
-        <span className={`mt-1 block text-xs ${active ? "text-[#637083]" : "text-white/55"}`}>{description}</span>
-      </span>
-      <ArrowRight size={17} className={`ml-auto shrink-0 transition-transform group-hover:translate-x-1 ${active ? "text-[#034EA1]" : "text-white/50"}`} aria-hidden="true" />
-    </button>
+      <div className={`min-w-0 border-b border-[#DDE3EB] lg:col-span-5 lg:border-b-0 ${imageRight ? "lg:order-2 lg:border-l" : "lg:border-r"}`}>
+        <div className="image-frame aspect-[16/10] min-h-0 sm:min-h-80 lg:aspect-auto lg:h-full lg:min-h-[430px]">
+          <img src={project.image} alt={project.title} loading="lazy" />
+        </div>
+      </div>
+
+      <div className={`min-w-0 p-6 md:p-9 lg:col-span-7 lg:p-11 xl:p-12 ${imageRight ? "lg:order-1" : ""}`}>
+        <h3 className="max-w-3xl font-heading text-2xl font-semibold leading-[1.2] text-[#243D71] md:text-3xl">
+          {project.title}
+        </h3>
+
+        <div className="mt-7 grid border-y border-[#DDE3EB] sm:grid-cols-[minmax(0,1fr)_180px]">
+          <div className="py-5 sm:pr-7">
+            <div className="font-heading text-[9px] font-bold uppercase tracking-[0.16em] text-[#034EA1]">Client</div>
+            <p className="mt-2 font-heading text-base font-semibold leading-relaxed text-[#243D71]">{project.client}</p>
+          </div>
+          <div className="border-t border-[#DDE3EB] py-5 sm:border-l sm:border-t-0 sm:pl-7">
+            <div className="font-heading text-[9px] font-bold uppercase tracking-[0.16em] text-[#034EA1]">Project scale</div>
+            <p className="mt-2 font-heading text-lg font-semibold text-[#243D71]">{project.metric}</p>
+          </div>
+        </div>
+
+        <div className="mt-7">
+          <div className="flex items-center gap-3 font-heading text-[10px] font-bold uppercase tracking-[0.16em] text-[#E07000]">
+            <span className="h-px w-8 bg-[#E07000]" aria-hidden="true" />
+            Project overview
+          </div>
+          <p className="mt-4 text-[15px] leading-7 text-[#637083] md:text-base md:leading-8">{project.overview}</p>
+        </div>
+      </div>
+    </article>
   );
 }
 
 function SummaryMetric({ value, label }) {
   return (
-    <div className="px-6 py-8 sm:px-8 sm:[&:not(:first-child)]:border-l border-[#DDE3EB]">
-      <div className="font-heading text-3xl text-[#034EA1] font-semibold">{value}</div>
-      <div className="mt-2 text-[10px] font-heading font-bold uppercase tracking-[0.14em] text-[#637083]">{label}</div>
-    </div>
-  );
-}
-
-function ProjectList({ title, items, bordered = false }) {
-  return (
-    <div className={`p-6 md:p-8 lg:p-10 ${bordered ? "border-t lg:border-t-0 lg:border-l border-[#DDE3EB]" : ""}`}>
-      <h3 className="font-heading text-xl text-[#243D71]">{title}</h3>
-      <ul className="mt-6 grid sm:grid-cols-2 gap-x-6 gap-y-3">
-        {items.map((item) => (
-          <li key={item} className="flex items-start gap-3 text-sm text-[#637083] leading-relaxed">
-            <Check size={14} className="mt-1 shrink-0 text-[#E07000]" aria-hidden="true" />
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
+    <div className="border-[#DDE3EB] px-6 py-8 sm:px-8 sm:[&:not(:first-child)]:border-l">
+      <div className="font-heading text-3xl font-semibold text-[#034EA1]">{value}</div>
+      <div className="mt-2 font-heading text-[10px] font-bold uppercase tracking-[0.14em] text-[#637083]">{label}</div>
     </div>
   );
 }
